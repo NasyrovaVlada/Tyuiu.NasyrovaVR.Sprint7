@@ -52,6 +52,7 @@
             this.ButtonInfo_NVR = new System.Windows.Forms.Button();
             this.ButtonHelp_NVR = new System.Windows.Forms.Button();
             this.ToolTip_NVR = new System.Windows.Forms.ToolTip(this.components);
+            this.ButtonAdd_NVR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -136,9 +137,9 @@
             // 
             this.GroupBoxSort_NVR.Controls.Add(this.ComboBoxSort_NVR);
             this.GroupBoxSort_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxSort_NVR.Location = new System.Drawing.Point(251, 196);
+            this.GroupBoxSort_NVR.Location = new System.Drawing.Point(183, 203);
             this.GroupBoxSort_NVR.Name = "GroupBoxSort_NVR";
-            this.GroupBoxSort_NVR.Size = new System.Drawing.Size(200, 77);
+            this.GroupBoxSort_NVR.Size = new System.Drawing.Size(153, 77);
             this.GroupBoxSort_NVR.TabIndex = 3;
             this.GroupBoxSort_NVR.TabStop = false;
             this.GroupBoxSort_NVR.Text = "Сортировка";
@@ -148,16 +149,16 @@
             this.ComboBoxSort_NVR.FormattingEnabled = true;
             this.ComboBoxSort_NVR.Location = new System.Drawing.Point(6, 42);
             this.ComboBoxSort_NVR.Name = "ComboBoxSort_NVR";
-            this.ComboBoxSort_NVR.Size = new System.Drawing.Size(187, 29);
+            this.ComboBoxSort_NVR.Size = new System.Drawing.Size(141, 29);
             this.ComboBoxSort_NVR.TabIndex = 0;
             // 
             // GroupBoxFilt_NVR
             // 
             this.GroupBoxFilt_NVR.Controls.Add(this.ComboBoxFilt_NVR);
             this.GroupBoxFilt_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxFilt_NVR.Location = new System.Drawing.Point(12, 196);
+            this.GroupBoxFilt_NVR.Location = new System.Drawing.Point(12, 203);
             this.GroupBoxFilt_NVR.Name = "GroupBoxFilt_NVR";
-            this.GroupBoxFilt_NVR.Size = new System.Drawing.Size(200, 77);
+            this.GroupBoxFilt_NVR.Size = new System.Drawing.Size(154, 77);
             this.GroupBoxFilt_NVR.TabIndex = 4;
             this.GroupBoxFilt_NVR.TabStop = false;
             this.GroupBoxFilt_NVR.Text = "Фильтр";
@@ -167,7 +168,7 @@
             this.ComboBoxFilt_NVR.FormattingEnabled = true;
             this.ComboBoxFilt_NVR.Location = new System.Drawing.Point(6, 42);
             this.ComboBoxFilt_NVR.Name = "ComboBoxFilt_NVR";
-            this.ComboBoxFilt_NVR.Size = new System.Drawing.Size(187, 29);
+            this.ComboBoxFilt_NVR.Size = new System.Drawing.Size(142, 29);
             this.ComboBoxFilt_NVR.TabIndex = 0;
             // 
             // LabelSearch_NVR
@@ -195,7 +196,7 @@
             this.ButtonOpen_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpen_NVR.BackgroundImage")));
             this.ButtonOpen_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonOpen_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpen_NVR.Location = new System.Drawing.Point(491, 217);
+            this.ButtonOpen_NVR.Location = new System.Drawing.Point(406, 224);
             this.ButtonOpen_NVR.Name = "ButtonOpen_NVR";
             this.ButtonOpen_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonOpen_NVR.TabIndex = 7;
@@ -207,7 +208,7 @@
             this.ButtonSave_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSave_NVR.BackgroundImage")));
             this.ButtonSave_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonSave_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonSave_NVR.Location = new System.Drawing.Point(576, 217);
+            this.ButtonSave_NVR.Location = new System.Drawing.Point(491, 224);
             this.ButtonSave_NVR.Name = "ButtonSave_NVR";
             this.ButtonSave_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonSave_NVR.TabIndex = 8;
@@ -267,11 +268,24 @@
             this.ToolTip_NVR.IsBalloon = true;
             this.ToolTip_NVR.ToolTipTitle = "Подсказка";
             // 
+            // ButtonAdd_NVR
+            // 
+            this.ButtonAdd_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonAdd_NVR.BackgroundImage")));
+            this.ButtonAdd_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonAdd_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAdd_NVR.Location = new System.Drawing.Point(576, 224);
+            this.ButtonAdd_NVR.Name = "ButtonAdd_NVR";
+            this.ButtonAdd_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonAdd_NVR.TabIndex = 12;
+            this.ToolTip_NVR.SetToolTip(this.ButtonAdd_NVR, "Добавить данные вручную");
+            this.ButtonAdd_NVR.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.Controls.Add(this.ButtonAdd_NVR);
             this.Controls.Add(this.PanelTop_NVR);
             this.Controls.Add(this.ButtonSave_NVR);
             this.Controls.Add(this.ButtonOpen_NVR);
@@ -282,7 +296,7 @@
             this.Controls.Add(this.DataGridViewMain_NVR);
             this.Controls.Add(this.ButtonSuppliers_NVR);
             this.Controls.Add(this.ButtonChart_NVR);
-            
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).EndInit();
             this.GroupBoxSort_NVR.ResumeLayout(false);
@@ -318,6 +332,7 @@
         private System.Windows.Forms.Button ButtonInfo_NVR;
         private System.Windows.Forms.Button ButtonHelp_NVR;
         private System.Windows.Forms.ToolTip ToolTip_NVR;
+        private System.Windows.Forms.Button ButtonAdd_NVR;
     }
 }
 
