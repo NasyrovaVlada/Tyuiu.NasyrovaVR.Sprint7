@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChart));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.PanelTopChart_NVR = new System.Windows.Forms.Panel();
             this.ButtonBackChart_NVR = new System.Windows.Forms.Button();
             this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -42,13 +42,13 @@
             this.ToolTipChart_NVR = new System.Windows.Forms.ToolTip(this.components);
             this.LabelNameChart_NVR = new System.Windows.Forms.Label();
             this.DataGridViewChart_NVR = new System.Windows.Forms.DataGridView();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonOpenChart_NVR = new System.Windows.Forms.Button();
+            this.CodeCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelTopChart_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).BeginInit();
             this.GroupBoxChart_NVR.SuspendLayout();
@@ -81,24 +81,24 @@
             // 
             // Chart_NVR
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Chart_NVR.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart_NVR.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.Chart_NVR.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Chart_NVR.Legends.Add(legend2);
             this.Chart_NVR.Location = new System.Drawing.Point(489, 174);
             this.Chart_NVR.Name = "Chart_NVR";
             this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Chart_NVR.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Chart_NVR.Series.Add(series2);
             this.Chart_NVR.Size = new System.Drawing.Size(507, 386);
             this.Chart_NVR.TabIndex = 1;
             this.Chart_NVR.Text = "chart1";
-            title1.Name = "Title";
-            title1.Text = "График стоимости";
-            this.Chart_NVR.Titles.Add(title1);
+            title2.Name = "Title";
+            title2.Text = "График стоимости";
+            this.Chart_NVR.Titles.Add(title2);
             // 
             // GroupBoxChart_NVR
             // 
@@ -139,47 +139,17 @@
             // 
             this.DataGridViewChart_NVR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewChart_NVR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Code,
-            this.Name,
-            this.Category,
-            this.Quantity,
-            this.Price,
-            this.Num});
+            this.CodeCh,
+            this.NameCh,
+            this.CategoryCh,
+            this.QuantityCh,
+            this.PriceCh,
+            this.NumCh});
             this.DataGridViewChart_NVR.Location = new System.Drawing.Point(13, 197);
             this.DataGridViewChart_NVR.Name = "DataGridViewChart_NVR";
             this.DataGridViewChart_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewChart_NVR.Size = new System.Drawing.Size(455, 363);
             this.DataGridViewChart_NVR.TabIndex = 4;
-            // 
-            // Code
-            // 
-            this.Code.HeaderText = "Код";
-            this.Code.Name = "Code";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Название";
-            this.Name.Name = "Name";
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Категория";
-            this.Category.Name = "Category";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Количество на складе";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Стоимость 1кг";
-            this.Price.Name = "Price";
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Номер поставщика";
-            this.Num.Name = "Num";
             // 
             // ButtonOpenChart_NVR
             // 
@@ -191,6 +161,36 @@
             this.ButtonOpenChart_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonOpenChart_NVR.TabIndex = 8;
             this.ButtonOpenChart_NVR.UseVisualStyleBackColor = true;
+            // 
+            // CodeCh
+            // 
+            this.CodeCh.HeaderText = "Код";
+            this.CodeCh.Name = "CodeCh";
+            // 
+            // NameCh
+            // 
+            this.NameCh.HeaderText = "Название";
+            this.NameCh.Name = "NameCh";
+            // 
+            // CategoryCh
+            // 
+            this.CategoryCh.HeaderText = "Категория";
+            this.CategoryCh.Name = "CategoryCh";
+            // 
+            // QuantityCh
+            // 
+            this.QuantityCh.HeaderText = "Количество на складе";
+            this.QuantityCh.Name = "QuantityCh";
+            // 
+            // PriceCh
+            // 
+            this.PriceCh.HeaderText = "Стоимость 1кг";
+            this.PriceCh.Name = "PriceCh";
+            // 
+            // NumCh
+            // 
+            this.NumCh.HeaderText = "Номер поставщика";
+            this.NumCh.Name = "NumCh";
             // 
             // FormChart
             // 
@@ -223,12 +223,12 @@
         private System.Windows.Forms.ToolTip ToolTipChart_NVR;
         private System.Windows.Forms.Label LabelNameChart_NVR;
         private System.Windows.Forms.DataGridView DataGridViewChart_NVR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
         private System.Windows.Forms.Button ButtonOpenChart_NVR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodeCh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryCh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityCh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceCh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumCh;
     }
 }

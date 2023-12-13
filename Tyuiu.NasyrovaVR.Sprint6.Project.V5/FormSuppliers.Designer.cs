@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuppliers));
             this.PanelTopSuppliers_NVR = new System.Windows.Forms.Panel();
             this.ButtonBackSuppliers_NVR = new System.Windows.Forms.Button();
-            this.GroupBoxSortSuppliers_NVR = new System.Windows.Forms.GroupBox();
-            this.ComboBoxSortSuppliers_NVR = new System.Windows.Forms.ComboBox();
+            this.GroupBoxFiltSuppliers_NVR = new System.Windows.Forms.GroupBox();
+            this.ComboBoxFiltSuppliers_NVR = new System.Windows.Forms.ComboBox();
             this.DataGridViewSuppliers_NVR = new System.Windows.Forms.DataGridView();
             this.NumS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +40,7 @@
             this.LabelNameSuppliers_NVR = new System.Windows.Forms.Label();
             this.ButtonOpenSuppliers_NVR = new System.Windows.Forms.Button();
             this.PanelTopSuppliers_NVR.SuspendLayout();
-            this.GroupBoxSortSuppliers_NVR.SuspendLayout();
+            this.GroupBoxFiltSuppliers_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliers_NVR)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,24 +67,24 @@
             this.ButtonBackSuppliers_NVR.UseVisualStyleBackColor = true;
             this.ButtonBackSuppliers_NVR.Click += new System.EventHandler(this.ButtonBackSuppliers_NVR_Click);
             // 
-            // GroupBoxSortSuppliers_NVR
+            // GroupBoxFiltSuppliers_NVR
             // 
-            this.GroupBoxSortSuppliers_NVR.Controls.Add(this.ComboBoxSortSuppliers_NVR);
-            this.GroupBoxSortSuppliers_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxSortSuppliers_NVR.Location = new System.Drawing.Point(227, 121);
-            this.GroupBoxSortSuppliers_NVR.Name = "GroupBoxSortSuppliers_NVR";
-            this.GroupBoxSortSuppliers_NVR.Size = new System.Drawing.Size(288, 77);
-            this.GroupBoxSortSuppliers_NVR.TabIndex = 4;
-            this.GroupBoxSortSuppliers_NVR.TabStop = false;
-            this.GroupBoxSortSuppliers_NVR.Text = "Сортировка";
+            this.GroupBoxFiltSuppliers_NVR.Controls.Add(this.ComboBoxFiltSuppliers_NVR);
+            this.GroupBoxFiltSuppliers_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GroupBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(227, 121);
+            this.GroupBoxFiltSuppliers_NVR.Name = "GroupBoxFiltSuppliers_NVR";
+            this.GroupBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(288, 77);
+            this.GroupBoxFiltSuppliers_NVR.TabIndex = 4;
+            this.GroupBoxFiltSuppliers_NVR.TabStop = false;
+            this.GroupBoxFiltSuppliers_NVR.Text = "Фильтр";
             // 
-            // ComboBoxSortSuppliers_NVR
+            // ComboBoxFiltSuppliers_NVR
             // 
-            this.ComboBoxSortSuppliers_NVR.FormattingEnabled = true;
-            this.ComboBoxSortSuppliers_NVR.Location = new System.Drawing.Point(6, 42);
-            this.ComboBoxSortSuppliers_NVR.Name = "ComboBoxSortSuppliers_NVR";
-            this.ComboBoxSortSuppliers_NVR.Size = new System.Drawing.Size(276, 29);
-            this.ComboBoxSortSuppliers_NVR.TabIndex = 0;
+            this.ComboBoxFiltSuppliers_NVR.FormattingEnabled = true;
+            this.ComboBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(6, 42);
+            this.ComboBoxFiltSuppliers_NVR.Name = "ComboBoxFiltSuppliers_NVR";
+            this.ComboBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(276, 29);
+            this.ComboBoxFiltSuppliers_NVR.TabIndex = 0;
             // 
             // DataGridViewSuppliers_NVR
             // 
@@ -147,12 +147,12 @@
             this.ClientSize = new System.Drawing.Size(1008, 601);
             this.Controls.Add(this.ButtonOpenSuppliers_NVR);
             this.Controls.Add(this.DataGridViewSuppliers_NVR);
-            this.Controls.Add(this.GroupBoxSortSuppliers_NVR);
+            this.Controls.Add(this.GroupBoxFiltSuppliers_NVR);
             this.Controls.Add(this.PanelTopSuppliers_NVR);
             this.Name = "FormSuppliers";
             this.PanelTopSuppliers_NVR.ResumeLayout(false);
             this.PanelTopSuppliers_NVR.PerformLayout();
-            this.GroupBoxSortSuppliers_NVR.ResumeLayout(false);
+            this.GroupBoxFiltSuppliers_NVR.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliers_NVR)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,8 +162,8 @@
 
         private System.Windows.Forms.Panel PanelTopSuppliers_NVR;
         private System.Windows.Forms.Button ButtonBackSuppliers_NVR;
-        private System.Windows.Forms.GroupBox GroupBoxSortSuppliers_NVR;
-        private System.Windows.Forms.ComboBox ComboBoxSortSuppliers_NVR;
+        private System.Windows.Forms.GroupBox GroupBoxFiltSuppliers_NVR;
+        private System.Windows.Forms.ComboBox ComboBoxFiltSuppliers_NVR;
         private System.Windows.Forms.DataGridView DataGridViewSuppliers_NVR;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumS;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameS;
