@@ -53,6 +53,7 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OpenFileDialogMain_NVR = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -280,6 +281,10 @@
             this.Num.HeaderText = "Номер поставщика";
             this.Num.Name = "Num";
             // 
+            // OpenFileDialogMain_NVR
+            // 
+            this.OpenFileDialogMain_NVR.FileName = "openFileDialog1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +338,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Num;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogMain_NVR;
     }
 }
 
