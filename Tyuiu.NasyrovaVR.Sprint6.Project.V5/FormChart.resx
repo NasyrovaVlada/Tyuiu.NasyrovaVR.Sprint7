@@ -120,17 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ButtonBackChart_NVR.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAB4ElEQVRYR8WW2ytEURTGV43L
-        k1D4FzyQwqOizGAQhbx4kn9CSY1xGQx5Uq7l9oCUF4o8uIdyCTFMlEKJ5F9YvnV2M6jt7VhW/WrPd86Z
-        79t77TN7iJn/FauoiVXUxCpqYhU1sYqaWEVNrKImVlGT3yqhKkwrNUMkdyQZSa88vh5a7l0irhp0AqQb
-        Wac8XpgHFolvn9rY1+8EyDKX/r483m6YY+b70SaOPHVyUSdxaYjY2+sePlCBiaHFq/BMMNYYlPXQTmCZ
-        +OC+mUc2sQIvw3zxUsNXr3V8/VrvGpG3Br7/aOSKsLO6KWKeWBmm9+AK8eFDC4/vEY/tEo9+Qz67hXz/
-        zBFxuWlvpgRI8yPNejSXZ46TeQIX/5JJMHdm2gBvZ39llLbTdnCNeOocN50g5bFBxm4zeYoAlz8DSB/y
-        iltpp2OdePoKN10YZDwbcZe5G+KFO2K0PR5AdmIGKJAQwQ0Y36JPUbwBXeiV7No+F8HMxbwsQPvwdPaA
-        lAd8hdginn80D0DzA6/LlIAc4LwFsYqHKEGI0AFx9YATIBvIUrmJzFzM478DsYqFKPSH6LnWnAXygGpJ
-        CDEtAPlA9SyIVSJIBWlA/TTULdufBE2soiZWUROrqIlV1MQqamIV9WD6BEN3/VvhbiiZAAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHgSURBVFhHxZbbK0RRFMZXjcuTUPgXPJDCo6LMYBCF
+        vHiSf0JJjXEZDHlSruX2gJQXijy4h3IJMUyUQonkX1i+dXYzqO3tWFb9as93zpnv23vtM3uImf8Vq6iJ
+        VdTEKmpiFTWxippYRU2soiZWUZPfKqEqTCs1QyR3JBlJrzy+HlruXSKuGnQCpBtZpzxemAcWiW+f2tjX
+        7wTIMpf+vjzebphj5vvRJo48dXJRJ3FpiNjb6x4+UIGJocWr8Eww1hiU9dBOYJn44L6ZRzaxAi/DfPFS
+        w1evdXz9Wu8akbcGvv9o5Iqws7opYp5YGab34Arx4UMLj+8Rj+0Sj35DPruFfP/MEXG5aW+mBEjzI816
+        NJdnjpN5Ahf/kkkwd2baAG9nf2WUttN2cI146hw3nSDlsUHGbjN5igCXPwNIH/KKW2mnY514+go3XRhk
+        PBtxl7kb4oU7YrQ9HkB2YgYokBDBDRjfok9RvAFd6JXs2j4XwczFvCxA+/B09oCUB3yF2CKefzQPQPMD
+        r8uUgBzgvAWxiocoQYjQAXH1gBMgG8hSuYnMXMzjvwOxioUo9IfoudacBfKAakkIMS0A+UD1LIhVIkgF
+        aUD9NNQt258ETayiJlZRE6uoiVXUxCpqYhX1YPoEQ3f9W+FuKJkAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="ToolTipChart_NVR.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

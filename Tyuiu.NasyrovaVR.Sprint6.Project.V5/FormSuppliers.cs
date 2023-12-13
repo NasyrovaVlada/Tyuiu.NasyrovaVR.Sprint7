@@ -16,5 +16,12 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             InitializeComponent();
         }
+
+        private void ButtonBackSuppliers_NVR_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+        }
     }
 }
