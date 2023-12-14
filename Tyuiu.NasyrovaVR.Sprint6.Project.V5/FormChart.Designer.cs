@@ -35,20 +35,21 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.PanelTopChart_NVR = new System.Windows.Forms.Panel();
+            this.LabelNameChart_NVR = new System.Windows.Forms.Label();
             this.ButtonBackChart_NVR = new System.Windows.Forms.Button();
             this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GroupBoxChart_NVR = new System.Windows.Forms.GroupBox();
             this.ComboBoxChart_NVR = new System.Windows.Forms.ComboBox();
             this.ToolTipChart_NVR = new System.Windows.Forms.ToolTip(this.components);
-            this.LabelNameChart_NVR = new System.Windows.Forms.Label();
             this.DataGridViewChart_NVR = new System.Windows.Forms.DataGridView();
-            this.ButtonOpenChart_NVR = new System.Windows.Forms.Button();
             this.CodeCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataNameCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ButtonOpenChart_NVR = new System.Windows.Forms.Button();
+            this.OpenFileDialogChart_NVR = new System.Windows.Forms.OpenFileDialog();
             this.PanelTopChart_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).BeginInit();
             this.GroupBoxChart_NVR.SuspendLayout();
@@ -65,6 +66,17 @@
             this.PanelTopChart_NVR.Name = "PanelTopChart_NVR";
             this.PanelTopChart_NVR.Size = new System.Drawing.Size(1008, 100);
             this.PanelTopChart_NVR.TabIndex = 0;
+            // 
+            // LabelNameChart_NVR
+            // 
+            this.LabelNameChart_NVR.AutoSize = true;
+            this.LabelNameChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNameChart_NVR.ForeColor = System.Drawing.Color.White;
+            this.LabelNameChart_NVR.Location = new System.Drawing.Point(309, 22);
+            this.LabelNameChart_NVR.Name = "LabelNameChart_NVR";
+            this.LabelNameChart_NVR.Size = new System.Drawing.Size(402, 47);
+            this.LabelNameChart_NVR.TabIndex = 14;
+            this.LabelNameChart_NVR.Text = "ГРАФИК СТОИМОСТИ";
             // 
             // ButtonBackChart_NVR
             // 
@@ -124,53 +136,32 @@
             this.ToolTipChart_NVR.IsBalloon = true;
             this.ToolTipChart_NVR.ToolTipTitle = "Подсказка";
             // 
-            // LabelNameChart_NVR
-            // 
-            this.LabelNameChart_NVR.AutoSize = true;
-            this.LabelNameChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelNameChart_NVR.ForeColor = System.Drawing.Color.White;
-            this.LabelNameChart_NVR.Location = new System.Drawing.Point(309, 22);
-            this.LabelNameChart_NVR.Name = "LabelNameChart_NVR";
-            this.LabelNameChart_NVR.Size = new System.Drawing.Size(402, 47);
-            this.LabelNameChart_NVR.TabIndex = 14;
-            this.LabelNameChart_NVR.Text = "ГРАФИК СТОИМОСТИ";
-            // 
             // DataGridViewChart_NVR
             // 
             this.DataGridViewChart_NVR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewChart_NVR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodeCh,
-            this.NameCh,
+            this.DataNameCh,
             this.CategoryCh,
             this.QuantityCh,
             this.PriceCh,
             this.NumCh});
             this.DataGridViewChart_NVR.Location = new System.Drawing.Point(13, 197);
             this.DataGridViewChart_NVR.Name = "DataGridViewChart_NVR";
+            this.DataGridViewChart_NVR.RowHeadersVisible = false;
             this.DataGridViewChart_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewChart_NVR.Size = new System.Drawing.Size(455, 363);
             this.DataGridViewChart_NVR.TabIndex = 4;
-            // 
-            // ButtonOpenChart_NVR
-            // 
-            this.ButtonOpenChart_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenChart_NVR.BackgroundImage")));
-            this.ButtonOpenChart_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonOpenChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(389, 135);
-            this.ButtonOpenChart_NVR.Name = "ButtonOpenChart_NVR";
-            this.ButtonOpenChart_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonOpenChart_NVR.TabIndex = 8;
-            this.ButtonOpenChart_NVR.UseVisualStyleBackColor = true;
             // 
             // CodeCh
             // 
             this.CodeCh.HeaderText = "Код";
             this.CodeCh.Name = "CodeCh";
             // 
-            // NameCh
+            // DataNameCh
             // 
-            this.NameCh.HeaderText = "Название";
-            this.NameCh.Name = "NameCh";
+            this.DataNameCh.HeaderText = "Название";
+            this.DataNameCh.Name = "DataNameCh";
             // 
             // CategoryCh
             // 
@@ -191,6 +182,22 @@
             // 
             this.NumCh.HeaderText = "Номер поставщика";
             this.NumCh.Name = "NumCh";
+            // 
+            // ButtonOpenChart_NVR
+            // 
+            this.ButtonOpenChart_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenChart_NVR.BackgroundImage")));
+            this.ButtonOpenChart_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonOpenChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(389, 135);
+            this.ButtonOpenChart_NVR.Name = "ButtonOpenChart_NVR";
+            this.ButtonOpenChart_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonOpenChart_NVR.TabIndex = 8;
+            this.ButtonOpenChart_NVR.UseVisualStyleBackColor = true;
+            this.ButtonOpenChart_NVR.Click += new System.EventHandler(this.ButtonOpenChart_NVR_Click);
+            // 
+            // OpenFileDialogChart_NVR
+            // 
+            this.OpenFileDialogChart_NVR.FileName = "OpenFileDialogChart_NVR";
             // 
             // FormChart
             // 
@@ -225,10 +232,11 @@
         private System.Windows.Forms.DataGridView DataGridViewChart_NVR;
         private System.Windows.Forms.Button ButtonOpenChart_NVR;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeCh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataNameCh;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryCh;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityCh;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceCh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumCh;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogChart_NVR;
     }
 }

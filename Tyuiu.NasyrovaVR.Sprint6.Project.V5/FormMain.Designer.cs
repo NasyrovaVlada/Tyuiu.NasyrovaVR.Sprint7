@@ -33,12 +33,6 @@
             this.ButtonChart_NVR = new System.Windows.Forms.Button();
             this.ButtonSuppliers_NVR = new System.Windows.Forms.Button();
             this.DataGridViewMain_NVR = new System.Windows.Forms.DataGridView();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBoxSort_NVR = new System.Windows.Forms.GroupBox();
             this.ComboBoxSort_NVR = new System.Windows.Forms.ComboBox();
             this.GroupBoxFilt_NVR = new System.Windows.Forms.GroupBox();
@@ -54,6 +48,12 @@
             this.ToolTip_NVR = new System.Windows.Forms.ToolTip(this.components);
             this.ButtonAdd_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogMain_NVR = new System.Windows.Forms.OpenFileDialog();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -93,46 +93,17 @@
             this.DataGridViewMain_NVR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewMain_NVR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Code,
-            this.Name,
+            this.DataName,
             this.Category,
             this.Quantity,
             this.Price,
             this.Num});
             this.DataGridViewMain_NVR.Location = new System.Drawing.Point(12, 286);
             this.DataGridViewMain_NVR.Name = "DataGridViewMain_NVR";
-            this.DataGridViewMain_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DataGridViewMain_NVR.RowHeadersVisible = false;
+            this.DataGridViewMain_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.DataGridViewMain_NVR.Size = new System.Drawing.Size(643, 274);
             this.DataGridViewMain_NVR.TabIndex = 2;
-            // 
-            // Code
-            // 
-            this.Code.HeaderText = "Код";
-            this.Code.Name = "Code";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Название";
-            this.Name.Name = "Name";
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Категория";
-            this.Category.Name = "Category";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Количество на складе";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Стоимость 1кг";
-            this.Price.Name = "Price";
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Номер поставщика";
-            this.Num.Name = "Num";
             // 
             // GroupBoxSort_NVR
             // 
@@ -203,6 +174,7 @@
             this.ButtonOpen_NVR.TabIndex = 7;
             this.ToolTip_NVR.SetToolTip(this.ButtonOpen_NVR, "Загрузить данные");
             this.ButtonOpen_NVR.UseVisualStyleBackColor = true;
+            this.ButtonOpen_NVR.Click += new System.EventHandler(this.ButtonOpen_NVR_Click);
             // 
             // ButtonSave_NVR
             // 
@@ -285,6 +257,37 @@
             // 
             this.OpenFileDialogMain_NVR.FileName = "openFileDialog1";
             // 
+            // Code
+            // 
+            this.Code.HeaderText = "Код";
+            this.Code.Name = "Code";
+            // 
+            // DataName
+            // 
+            this.DataName.HeaderText = "Название";
+            this.DataName.Name = "DataName";
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Категория";
+            this.Category.Name = "Category";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Количество на складе";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Стоимость 1кг";
+            this.Price.Name = "Price";
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "Номер поставщика";
+            this.Num.Name = "Num";
+            this.Num.Width = 150;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,13 +335,13 @@
         private System.Windows.Forms.Button ButtonHelp_NVR;
         private System.Windows.Forms.ToolTip ToolTip_NVR;
         private System.Windows.Forms.Button ButtonAdd_NVR;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogMain_NVR;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Num;
-        private System.Windows.Forms.OpenFileDialog OpenFileDialogMain_NVR;
     }
 }
 
