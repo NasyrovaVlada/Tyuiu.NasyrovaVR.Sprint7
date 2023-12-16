@@ -33,6 +33,12 @@
             this.ButtonChart_NVR = new System.Windows.Forms.Button();
             this.ButtonSuppliers_NVR = new System.Windows.Forms.Button();
             this.DataGridViewMain_NVR = new System.Windows.Forms.DataGridView();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBoxSort_NVR = new System.Windows.Forms.GroupBox();
             this.ComboBoxSort_NVR = new System.Windows.Forms.ComboBox();
             this.GroupBoxFilt_NVR = new System.Windows.Forms.GroupBox();
@@ -48,12 +54,6 @@
             this.ToolTip_NVR = new System.Windows.Forms.ToolTip(this.components);
             this.ButtonAdd_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogMain_NVR = new System.Windows.Forms.OpenFileDialog();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -104,6 +104,37 @@
             this.DataGridViewMain_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.DataGridViewMain_NVR.Size = new System.Drawing.Size(643, 274);
             this.DataGridViewMain_NVR.TabIndex = 2;
+            // 
+            // Code
+            // 
+            this.Code.HeaderText = "Код";
+            this.Code.Name = "Code";
+            // 
+            // DataName
+            // 
+            this.DataName.HeaderText = "Название";
+            this.DataName.Name = "DataName";
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Категория";
+            this.Category.Name = "Category";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Количество на складе";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Стоимость 1кг";
+            this.Price.Name = "Price";
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "Номер поставщика";
+            this.Num.Name = "Num";
+            this.Num.Width = 150;
             // 
             // GroupBoxSort_NVR
             // 
@@ -256,37 +287,6 @@
             // OpenFileDialogMain_NVR
             // 
             this.OpenFileDialogMain_NVR.FileName = "openFileDialog1";
-            // 
-            // Code
-            // 
-            this.Code.HeaderText = "Код";
-            this.Code.Name = "Code";
-            // 
-            // DataName
-            // 
-            this.DataName.HeaderText = "Название";
-            this.DataName.Name = "DataName";
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Категория";
-            this.Category.Name = "Category";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Количество на складе";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Стоимость 1кг";
-            this.Price.Name = "Price";
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Номер поставщика";
-            this.Num.Name = "Num";
-            this.Num.Width = 150;
             // 
             // FormMain
             // 

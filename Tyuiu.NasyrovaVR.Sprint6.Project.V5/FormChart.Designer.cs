@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChart));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.PanelTopChart_NVR = new System.Windows.Forms.Panel();
             this.LabelNameChart_NVR = new System.Windows.Forms.Label();
             this.ButtonBackChart_NVR = new System.Windows.Forms.Button();
@@ -50,6 +50,8 @@
             this.NumCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonOpenChart_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogChart_NVR = new System.Windows.Forms.OpenFileDialog();
+            this.PanelFillChart_NVR = new System.Windows.Forms.Panel();
+            this.PanelLeftChart_NVR = new System.Windows.Forms.Panel();
             this.PanelTopChart_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).BeginInit();
             this.GroupBoxChart_NVR.SuspendLayout();
@@ -93,24 +95,24 @@
             // 
             // Chart_NVR
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Chart_NVR.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Chart_NVR.Legends.Add(legend2);
-            this.Chart_NVR.Location = new System.Drawing.Point(489, 174);
+            chartArea1.Name = "ChartArea1";
+            this.Chart_NVR.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Chart_NVR.Legends.Add(legend1);
+            this.Chart_NVR.Location = new System.Drawing.Point(489, 106);
             this.Chart_NVR.Name = "Chart_NVR";
             this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series2.ChartArea = "ChartArea1";
-            series2.IsVisibleInLegend = false;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Chart_NVR.Series.Add(series2);
-            this.Chart_NVR.Size = new System.Drawing.Size(507, 386);
+            series1.ChartArea = "ChartArea1";
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Chart_NVR.Series.Add(series1);
+            this.Chart_NVR.Size = new System.Drawing.Size(507, 454);
             this.Chart_NVR.TabIndex = 1;
             this.Chart_NVR.Text = "chart1";
-            title2.Name = "Title";
-            title2.Text = "График стоимости";
-            this.Chart_NVR.Titles.Add(title2);
+            title1.Name = "Title";
+            title1.Text = "График стоимости";
+            this.Chart_NVR.Titles.Add(title1);
             // 
             // GroupBoxChart_NVR
             // 
@@ -199,15 +201,33 @@
             // 
             this.OpenFileDialogChart_NVR.FileName = "OpenFileDialogChart_NVR";
             // 
+            // PanelFillChart_NVR
+            // 
+            this.PanelFillChart_NVR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelFillChart_NVR.Location = new System.Drawing.Point(0, 100);
+            this.PanelFillChart_NVR.Name = "PanelFillChart_NVR";
+            this.PanelFillChart_NVR.Size = new System.Drawing.Size(1008, 501);
+            this.PanelFillChart_NVR.TabIndex = 9;
+            // 
+            // PanelLeftChart_NVR
+            // 
+            this.PanelLeftChart_NVR.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelLeftChart_NVR.Location = new System.Drawing.Point(0, 100);
+            this.PanelLeftChart_NVR.Name = "PanelLeftChart_NVR";
+            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(487, 501);
+            this.PanelLeftChart_NVR.TabIndex = 10;
+            // 
             // FormChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 601);
             this.Controls.Add(this.ButtonOpenChart_NVR);
-            this.Controls.Add(this.DataGridViewChart_NVR);
             this.Controls.Add(this.GroupBoxChart_NVR);
+            this.Controls.Add(this.DataGridViewChart_NVR);
+            this.Controls.Add(this.PanelLeftChart_NVR);
             this.Controls.Add(this.Chart_NVR);
+            this.Controls.Add(this.PanelFillChart_NVR);
             this.Controls.Add(this.PanelTopChart_NVR);
             this.Name = "FormChart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -238,5 +258,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceCh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumCh;
         private System.Windows.Forms.OpenFileDialog OpenFileDialogChart_NVR;
+        private System.Windows.Forms.Panel PanelFillChart_NVR;
+        private System.Windows.Forms.Panel PanelLeftChart_NVR;
     }
 }
