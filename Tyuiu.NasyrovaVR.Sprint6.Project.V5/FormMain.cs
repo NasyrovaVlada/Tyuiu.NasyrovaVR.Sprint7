@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 {
     public partial class FormMain : Form
     {
+        private DataView originalDataView;
         public FormMain()
         {
             InitializeComponent();
@@ -77,6 +79,49 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
             DataGridViewMain_NVR.ScrollBars = ScrollBars.Both;
 
+        }
+
+        private void TextBoxSearch_NVR_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = TextBoxSearch_NVR.Text.ToLower(); //приведение к нижнему регистру
+            foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+            {
+                if (row.Cells["DataName"].Value != null && row.Cells["Code"].Value != null)
+                {
+                    string column1Text = row.Cells["DataName"].Value.ToString().ToLower();
+                    string column2Text = row.Cells["Code"].Value.ToString().ToLower();
+                    string column3Text = row.Cells["Category"].Value.ToString().ToLower();
+                    
+                    if (column1Text.Contains(searchText) || column2Text.Contains(searchText))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void ComboBoxFilt_NVR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+
+            foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+            {
+                if (!row.IsNewRow) // проверка новая ли строка
+                {
+                    if (row.Cells["Category"].Value != null && row.Cells["Category"].Value.ToString() == selectedValue)
+                    {
+                        row.Visible = true; 
+                    }
+                    else
+                    {
+                        row.Visible = false; 
+                    }
+                }
+            }
         }
     }
 }

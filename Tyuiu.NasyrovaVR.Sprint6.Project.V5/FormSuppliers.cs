@@ -62,5 +62,25 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
             DataGridViewSuppliers_NVR.ScrollBars = ScrollBars.Both;
         }
+
+        private void ComboBoxFiltSuppliers_NVR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValueSuppliers = ComboBoxFiltSuppliers_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+
+            foreach (DataGridViewRow row in DataGridViewSuppliers_NVR.Rows)
+            {
+                if (!row.IsNewRow) // проверка новая ли строка
+                {
+                    if (row.Cells["MonthS"].Value != null && row.Cells["MonthS"].Value.ToString() == selectedValueSuppliers)
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
     }
 }

@@ -37,7 +37,6 @@
             this.PanelTopChart_NVR = new System.Windows.Forms.Panel();
             this.LabelNameChart_NVR = new System.Windows.Forms.Label();
             this.ButtonBackChart_NVR = new System.Windows.Forms.Button();
-            this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GroupBoxChart_NVR = new System.Windows.Forms.GroupBox();
             this.ComboBoxChart_NVR = new System.Windows.Forms.ComboBox();
             this.ToolTipChart_NVR = new System.Windows.Forms.ToolTip(this.components);
@@ -50,12 +49,13 @@
             this.NumCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonOpenChart_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogChart_NVR = new System.Windows.Forms.OpenFileDialog();
-            this.PanelFillChart_NVR = new System.Windows.Forms.Panel();
             this.PanelLeftChart_NVR = new System.Windows.Forms.Panel();
+            this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PanelTopChart_NVR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).BeginInit();
             this.GroupBoxChart_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewChart_NVR)).BeginInit();
+            this.PanelLeftChart_NVR.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTopChart_NVR
@@ -66,7 +66,7 @@
             this.PanelTopChart_NVR.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTopChart_NVR.Location = new System.Drawing.Point(0, 0);
             this.PanelTopChart_NVR.Name = "PanelTopChart_NVR";
-            this.PanelTopChart_NVR.Size = new System.Drawing.Size(1008, 100);
+            this.PanelTopChart_NVR.Size = new System.Drawing.Size(1264, 100);
             this.PanelTopChart_NVR.TabIndex = 0;
             // 
             // LabelNameChart_NVR
@@ -74,7 +74,7 @@
             this.LabelNameChart_NVR.AutoSize = true;
             this.LabelNameChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNameChart_NVR.ForeColor = System.Drawing.Color.White;
-            this.LabelNameChart_NVR.Location = new System.Drawing.Point(309, 22);
+            this.LabelNameChart_NVR.Location = new System.Drawing.Point(127, 25);
             this.LabelNameChart_NVR.Name = "LabelNameChart_NVR";
             this.LabelNameChart_NVR.Size = new System.Drawing.Size(402, 47);
             this.LabelNameChart_NVR.TabIndex = 14;
@@ -93,32 +93,11 @@
             this.ButtonBackChart_NVR.UseVisualStyleBackColor = true;
             this.ButtonBackChart_NVR.Click += new System.EventHandler(this.ButtonBackChart_NVR_Click);
             // 
-            // Chart_NVR
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.Chart_NVR.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart_NVR.Legends.Add(legend1);
-            this.Chart_NVR.Location = new System.Drawing.Point(489, 106);
-            this.Chart_NVR.Name = "Chart_NVR";
-            this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Chart_NVR.Series.Add(series1);
-            this.Chart_NVR.Size = new System.Drawing.Size(507, 454);
-            this.Chart_NVR.TabIndex = 1;
-            this.Chart_NVR.Text = "chart1";
-            title1.Name = "Title";
-            title1.Text = "График стоимости";
-            this.Chart_NVR.Titles.Add(title1);
-            // 
             // GroupBoxChart_NVR
             // 
             this.GroupBoxChart_NVR.Controls.Add(this.ComboBoxChart_NVR);
             this.GroupBoxChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxChart_NVR.Location = new System.Drawing.Point(12, 106);
+            this.GroupBoxChart_NVR.Location = new System.Drawing.Point(880, 106);
             this.GroupBoxChart_NVR.Name = "GroupBoxChart_NVR";
             this.GroupBoxChart_NVR.Size = new System.Drawing.Size(336, 85);
             this.GroupBoxChart_NVR.TabIndex = 3;
@@ -148,11 +127,12 @@
             this.QuantityCh,
             this.PriceCh,
             this.NumCh});
-            this.DataGridViewChart_NVR.Location = new System.Drawing.Point(13, 197);
+            this.DataGridViewChart_NVR.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DataGridViewChart_NVR.Location = new System.Drawing.Point(0, 0);
             this.DataGridViewChart_NVR.Name = "DataGridViewChart_NVR";
             this.DataGridViewChart_NVR.RowHeadersVisible = false;
             this.DataGridViewChart_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DataGridViewChart_NVR.Size = new System.Drawing.Size(455, 363);
+            this.DataGridViewChart_NVR.Size = new System.Drawing.Size(602, 581);
             this.DataGridViewChart_NVR.TabIndex = 4;
             // 
             // CodeCh
@@ -190,7 +170,7 @@
             this.ButtonOpenChart_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenChart_NVR.BackgroundImage")));
             this.ButtonOpenChart_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonOpenChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(389, 135);
+            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(608, 106);
             this.ButtonOpenChart_NVR.Name = "ButtonOpenChart_NVR";
             this.ButtonOpenChart_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonOpenChart_NVR.TabIndex = 8;
@@ -201,41 +181,54 @@
             // 
             this.OpenFileDialogChart_NVR.FileName = "OpenFileDialogChart_NVR";
             // 
-            // PanelFillChart_NVR
-            // 
-            this.PanelFillChart_NVR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelFillChart_NVR.Location = new System.Drawing.Point(0, 100);
-            this.PanelFillChart_NVR.Name = "PanelFillChart_NVR";
-            this.PanelFillChart_NVR.Size = new System.Drawing.Size(1008, 501);
-            this.PanelFillChart_NVR.TabIndex = 9;
-            // 
             // PanelLeftChart_NVR
             // 
+            this.PanelLeftChart_NVR.Controls.Add(this.DataGridViewChart_NVR);
             this.PanelLeftChart_NVR.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeftChart_NVR.Location = new System.Drawing.Point(0, 100);
             this.PanelLeftChart_NVR.Name = "PanelLeftChart_NVR";
-            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(487, 501);
-            this.PanelLeftChart_NVR.TabIndex = 10;
+            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(602, 581);
+            this.PanelLeftChart_NVR.TabIndex = 9;
+            // 
+            // Chart_NVR
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Chart_NVR.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Chart_NVR.Legends.Add(legend1);
+            this.Chart_NVR.Location = new System.Drawing.Point(652, 197);
+            this.Chart_NVR.Name = "Chart_NVR";
+            this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series1.ChartArea = "ChartArea1";
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Chart_NVR.Series.Add(series1);
+            this.Chart_NVR.Size = new System.Drawing.Size(564, 472);
+            this.Chart_NVR.TabIndex = 1;
+            this.Chart_NVR.Text = "chart1";
+            title1.Name = "Title";
+            title1.Text = "График стоимости";
+            this.Chart_NVR.Titles.Add(title1);
             // 
             // FormChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.Chart_NVR);
             this.Controls.Add(this.ButtonOpenChart_NVR);
             this.Controls.Add(this.GroupBoxChart_NVR);
-            this.Controls.Add(this.DataGridViewChart_NVR);
             this.Controls.Add(this.PanelLeftChart_NVR);
-            this.Controls.Add(this.Chart_NVR);
-            this.Controls.Add(this.PanelFillChart_NVR);
             this.Controls.Add(this.PanelTopChart_NVR);
             this.Name = "FormChart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PanelTopChart_NVR.ResumeLayout(false);
             this.PanelTopChart_NVR.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).EndInit();
             this.GroupBoxChart_NVR.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewChart_NVR)).EndInit();
+            this.PanelLeftChart_NVR.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_NVR)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,7 +236,6 @@
         #endregion
 
         private System.Windows.Forms.Panel PanelTopChart_NVR;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Chart_NVR;
         private System.Windows.Forms.Button ButtonBackChart_NVR;
         private System.Windows.Forms.GroupBox GroupBoxChart_NVR;
         private System.Windows.Forms.ComboBox ComboBoxChart_NVR;
@@ -258,7 +250,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceCh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumCh;
         private System.Windows.Forms.OpenFileDialog OpenFileDialogChart_NVR;
-        private System.Windows.Forms.Panel PanelFillChart_NVR;
         private System.Windows.Forms.Panel PanelLeftChart_NVR;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Chart_NVR;
     }
 }

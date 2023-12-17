@@ -35,14 +35,17 @@
             this.GroupBoxFiltSuppliers_NVR = new System.Windows.Forms.GroupBox();
             this.ComboBoxFiltSuppliers_NVR = new System.Windows.Forms.ComboBox();
             this.DataGridViewSuppliers_NVR = new System.Windows.Forms.DataGridView();
+            this.ButtonOpenSuppliers_NVR = new System.Windows.Forms.Button();
+            this.OpenFileDialogSuppliers_NVR = new System.Windows.Forms.OpenFileDialog();
             this.NumS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataNameS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ButtonOpenSuppliers_NVR = new System.Windows.Forms.Button();
-            this.OpenFileDialogSuppliers_NVR = new System.Windows.Forms.OpenFileDialog();
+            this.MonthS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PanelLeftSuppliers_NVR = new System.Windows.Forms.Panel();
             this.PanelTopSuppliers_NVR.SuspendLayout();
             this.GroupBoxFiltSuppliers_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliers_NVR)).BeginInit();
+            this.PanelLeftSuppliers_NVR.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelTopSuppliers_NVR
@@ -53,7 +56,7 @@
             this.PanelTopSuppliers_NVR.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTopSuppliers_NVR.Location = new System.Drawing.Point(0, 0);
             this.PanelTopSuppliers_NVR.Name = "PanelTopSuppliers_NVR";
-            this.PanelTopSuppliers_NVR.Size = new System.Drawing.Size(1008, 100);
+            this.PanelTopSuppliers_NVR.Size = new System.Drawing.Size(1264, 100);
             this.PanelTopSuppliers_NVR.TabIndex = 0;
             // 
             // LabelNameSuppliers_NVR
@@ -83,9 +86,9 @@
             // 
             this.GroupBoxFiltSuppliers_NVR.Controls.Add(this.ComboBoxFiltSuppliers_NVR);
             this.GroupBoxFiltSuppliers_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(227, 121);
+            this.GroupBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(704, 168);
             this.GroupBoxFiltSuppliers_NVR.Name = "GroupBoxFiltSuppliers_NVR";
-            this.GroupBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(288, 77);
+            this.GroupBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(272, 89);
             this.GroupBoxFiltSuppliers_NVR.TabIndex = 4;
             this.GroupBoxFiltSuppliers_NVR.TabStop = false;
             this.GroupBoxFiltSuppliers_NVR.Text = "Фильтр";
@@ -93,10 +96,15 @@
             // ComboBoxFiltSuppliers_NVR
             // 
             this.ComboBoxFiltSuppliers_NVR.FormattingEnabled = true;
+            this.ComboBoxFiltSuppliers_NVR.Items.AddRange(new object[] {
+            "декабрь",
+            "январь",
+            "февраль"});
             this.ComboBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(6, 42);
             this.ComboBoxFiltSuppliers_NVR.Name = "ComboBoxFiltSuppliers_NVR";
-            this.ComboBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(276, 29);
+            this.ComboBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(260, 29);
             this.ComboBoxFiltSuppliers_NVR.TabIndex = 0;
+            this.ComboBoxFiltSuppliers_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFiltSuppliers_NVR_SelectedIndexChanged);
             // 
             // DataGridViewSuppliers_NVR
             // 
@@ -104,13 +112,31 @@
             this.DataGridViewSuppliers_NVR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumS,
             this.DataNameS,
-            this.DateS});
-            this.DataGridViewSuppliers_NVR.Location = new System.Drawing.Point(227, 204);
+            this.DateS,
+            this.MonthS});
+            this.DataGridViewSuppliers_NVR.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DataGridViewSuppliers_NVR.Location = new System.Drawing.Point(0, 0);
             this.DataGridViewSuppliers_NVR.Name = "DataGridViewSuppliers_NVR";
             this.DataGridViewSuppliers_NVR.RowHeadersVisible = false;
             this.DataGridViewSuppliers_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DataGridViewSuppliers_NVR.Size = new System.Drawing.Size(546, 385);
+            this.DataGridViewSuppliers_NVR.Size = new System.Drawing.Size(695, 581);
             this.DataGridViewSuppliers_NVR.TabIndex = 5;
+            // 
+            // ButtonOpenSuppliers_NVR
+            // 
+            this.ButtonOpenSuppliers_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenSuppliers_NVR.BackgroundImage")));
+            this.ButtonOpenSuppliers_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonOpenSuppliers_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonOpenSuppliers_NVR.Location = new System.Drawing.Point(704, 106);
+            this.ButtonOpenSuppliers_NVR.Name = "ButtonOpenSuppliers_NVR";
+            this.ButtonOpenSuppliers_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonOpenSuppliers_NVR.TabIndex = 8;
+            this.ButtonOpenSuppliers_NVR.UseVisualStyleBackColor = true;
+            this.ButtonOpenSuppliers_NVR.Click += new System.EventHandler(this.ButtonOpenSuppliers_NVR_Click);
+            // 
+            // OpenFileDialogSuppliers_NVR
+            // 
+            this.OpenFileDialogSuppliers_NVR.FileName = "openFileDialog1";
             // 
             // NumS
             // 
@@ -130,29 +156,28 @@
             this.DateS.Name = "DateS";
             this.DateS.Width = 200;
             // 
-            // ButtonOpenSuppliers_NVR
+            // MonthS
             // 
-            this.ButtonOpenSuppliers_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenSuppliers_NVR.BackgroundImage")));
-            this.ButtonOpenSuppliers_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonOpenSuppliers_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpenSuppliers_NVR.Location = new System.Drawing.Point(694, 142);
-            this.ButtonOpenSuppliers_NVR.Name = "ButtonOpenSuppliers_NVR";
-            this.ButtonOpenSuppliers_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonOpenSuppliers_NVR.TabIndex = 8;
-            this.ButtonOpenSuppliers_NVR.UseVisualStyleBackColor = true;
-            this.ButtonOpenSuppliers_NVR.Click += new System.EventHandler(this.ButtonOpenSuppliers_NVR_Click);
+            this.MonthS.HeaderText = "Месяц поставки";
+            this.MonthS.Name = "MonthS";
+            this.MonthS.Width = 150;
             // 
-            // OpenFileDialogSuppliers_NVR
+            // PanelLeftSuppliers_NVR
             // 
-            this.OpenFileDialogSuppliers_NVR.FileName = "openFileDialog1";
+            this.PanelLeftSuppliers_NVR.Controls.Add(this.DataGridViewSuppliers_NVR);
+            this.PanelLeftSuppliers_NVR.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelLeftSuppliers_NVR.Location = new System.Drawing.Point(0, 100);
+            this.PanelLeftSuppliers_NVR.Name = "PanelLeftSuppliers_NVR";
+            this.PanelLeftSuppliers_NVR.Size = new System.Drawing.Size(698, 581);
+            this.PanelLeftSuppliers_NVR.TabIndex = 9;
             // 
             // FormSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.PanelLeftSuppliers_NVR);
             this.Controls.Add(this.ButtonOpenSuppliers_NVR);
-            this.Controls.Add(this.DataGridViewSuppliers_NVR);
             this.Controls.Add(this.GroupBoxFiltSuppliers_NVR);
             this.Controls.Add(this.PanelTopSuppliers_NVR);
             this.Name = "FormSuppliers";
@@ -161,6 +186,7 @@
             this.PanelTopSuppliers_NVR.PerformLayout();
             this.GroupBoxFiltSuppliers_NVR.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliers_NVR)).EndInit();
+            this.PanelLeftSuppliers_NVR.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -174,9 +200,11 @@
         private System.Windows.Forms.DataGridView DataGridViewSuppliers_NVR;
         private System.Windows.Forms.Label LabelNameSuppliers_NVR;
         private System.Windows.Forms.Button ButtonOpenSuppliers_NVR;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogSuppliers_NVR;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataNameS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateS;
-        private System.Windows.Forms.OpenFileDialog OpenFileDialogSuppliers_NVR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MonthS;
+        private System.Windows.Forms.Panel PanelLeftSuppliers_NVR;
     }
 }
