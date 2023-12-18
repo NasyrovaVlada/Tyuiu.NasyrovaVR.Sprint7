@@ -91,7 +91,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     string column1Text = row.Cells["DataName"].Value.ToString().ToLower();
                     string column2Text = row.Cells["Code"].Value.ToString().ToLower();
                     string column3Text = row.Cells["Category"].Value.ToString().ToLower();
-                    
+
                     if (column1Text.Contains(searchText) || column2Text.Contains(searchText))
                     {
                         row.Visible = true;
@@ -106,22 +106,55 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ComboBoxFilt_NVR_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedValue = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+            string valueFilt = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
 
             foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
             {
                 if (!row.IsNewRow) // проверка новая ли строка
                 {
-                    if (row.Cells["Category"].Value != null && row.Cells["Category"].Value.ToString() == selectedValue)
+                    if (row.Cells["Category"].Value != null && row.Cells["Category"].Value.ToString() == valueFilt)
                     {
-                        row.Visible = true; 
+                        row.Visible = true;
                     }
                     else
                     {
-                        row.Visible = false; 
+                        row.Visible = false;
                     }
                 }
             }
+        }
+
+       
+
+        private void ComboBoxSort_NVR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxSort_NVR.SelectedItem != null) 
+            {
+                int columnIndex = 4; 
+
+                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+                {
+                    int cellValue;
+                    if (row.Cells[columnIndex].Value != null && int.TryParse(row.Cells[columnIndex].Value.ToString(), out cellValue))
+                    {
+                        row.Cells[columnIndex].Value = cellValue;
+                    }
+
+                }
+
+                DataGridViewColumn column = DataGridViewMain_NVR.Columns[4];
+                string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
+
+                if (selectedItem == "Max")
+                {
+                    DataGridViewMain_NVR.Sort(column, ListSortDirection.Ascending); //поменять
+                }
+                else if (selectedItem == "Min")
+                {
+                    DataGridViewMain_NVR.Sort(column, ListSortDirection.Descending); 
+                }
+            }
+
         }
     }
 }

@@ -74,7 +74,7 @@
             this.LabelNameChart_NVR.AutoSize = true;
             this.LabelNameChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelNameChart_NVR.ForeColor = System.Drawing.Color.White;
-            this.LabelNameChart_NVR.Location = new System.Drawing.Point(127, 25);
+            this.LabelNameChart_NVR.Location = new System.Drawing.Point(441, 24);
             this.LabelNameChart_NVR.Name = "LabelNameChart_NVR";
             this.LabelNameChart_NVR.Size = new System.Drawing.Size(402, 47);
             this.LabelNameChart_NVR.TabIndex = 14;
@@ -97,7 +97,7 @@
             // 
             this.GroupBoxChart_NVR.Controls.Add(this.ComboBoxChart_NVR);
             this.GroupBoxChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxChart_NVR.Location = new System.Drawing.Point(880, 106);
+            this.GroupBoxChart_NVR.Location = new System.Drawing.Point(916, 106);
             this.GroupBoxChart_NVR.Name = "GroupBoxChart_NVR";
             this.GroupBoxChart_NVR.Size = new System.Drawing.Size(336, 85);
             this.GroupBoxChart_NVR.TabIndex = 3;
@@ -132,7 +132,7 @@
             this.DataGridViewChart_NVR.Name = "DataGridViewChart_NVR";
             this.DataGridViewChart_NVR.RowHeadersVisible = false;
             this.DataGridViewChart_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DataGridViewChart_NVR.Size = new System.Drawing.Size(602, 581);
+            this.DataGridViewChart_NVR.Size = new System.Drawing.Size(622, 581);
             this.DataGridViewChart_NVR.TabIndex = 4;
             // 
             // CodeCh
@@ -170,7 +170,7 @@
             this.ButtonOpenChart_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenChart_NVR.BackgroundImage")));
             this.ButtonOpenChart_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonOpenChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(608, 106);
+            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(628, 106);
             this.ButtonOpenChart_NVR.Name = "ButtonOpenChart_NVR";
             this.ButtonOpenChart_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonOpenChart_NVR.TabIndex = 8;
@@ -187,7 +187,7 @@
             this.PanelLeftChart_NVR.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeftChart_NVR.Location = new System.Drawing.Point(0, 100);
             this.PanelLeftChart_NVR.Name = "PanelLeftChart_NVR";
-            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(602, 581);
+            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(622, 581);
             this.PanelLeftChart_NVR.TabIndex = 9;
             // 
             // Chart_NVR
@@ -196,7 +196,7 @@
             this.Chart_NVR.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.Chart_NVR.Legends.Add(legend1);
-            this.Chart_NVR.Location = new System.Drawing.Point(652, 197);
+            this.Chart_NVR.Location = new System.Drawing.Point(688, 197);
             this.Chart_NVR.Name = "Chart_NVR";
             this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             series1.ChartArea = "ChartArea1";
