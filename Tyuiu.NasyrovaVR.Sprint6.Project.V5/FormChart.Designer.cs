@@ -51,6 +51,7 @@
             this.OpenFileDialogChart_NVR = new System.Windows.Forms.OpenFileDialog();
             this.PanelLeftChart_NVR = new System.Windows.Forms.Panel();
             this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ButtonDoneChart_NVR = new System.Windows.Forms.Button();
             this.PanelTopChart_NVR.SuspendLayout();
             this.GroupBoxChart_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewChart_NVR)).BeginInit();
@@ -97,9 +98,9 @@
             // 
             this.GroupBoxChart_NVR.Controls.Add(this.ComboBoxChart_NVR);
             this.GroupBoxChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxChart_NVR.Location = new System.Drawing.Point(916, 106);
+            this.GroupBoxChart_NVR.Location = new System.Drawing.Point(950, 106);
             this.GroupBoxChart_NVR.Name = "GroupBoxChart_NVR";
-            this.GroupBoxChart_NVR.Size = new System.Drawing.Size(336, 85);
+            this.GroupBoxChart_NVR.Size = new System.Drawing.Size(302, 85);
             this.GroupBoxChart_NVR.TabIndex = 3;
             this.GroupBoxChart_NVR.TabStop = false;
             this.GroupBoxChart_NVR.Text = "Выбор категории";
@@ -107,10 +108,19 @@
             // ComboBoxChart_NVR
             // 
             this.ComboBoxChart_NVR.FormattingEnabled = true;
+            this.ComboBoxChart_NVR.Items.AddRange(new object[] {
+            "Яблоки",
+            "Груши",
+            "Бананы",
+            "Огурцы",
+            "Киви",
+            "Лимоны",
+            "Апельсины"});
             this.ComboBoxChart_NVR.Location = new System.Drawing.Point(6, 43);
             this.ComboBoxChart_NVR.Name = "ComboBoxChart_NVR";
-            this.ComboBoxChart_NVR.Size = new System.Drawing.Size(324, 36);
+            this.ComboBoxChart_NVR.Size = new System.Drawing.Size(290, 36);
             this.ComboBoxChart_NVR.TabIndex = 0;
+            this.ComboBoxChart_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChart_NVR_SelectedIndexChanged);
             // 
             // ToolTipChart_NVR
             // 
@@ -196,7 +206,7 @@
             this.Chart_NVR.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.Chart_NVR.Legends.Add(legend1);
-            this.Chart_NVR.Location = new System.Drawing.Point(688, 197);
+            this.Chart_NVR.Location = new System.Drawing.Point(745, 197);
             this.Chart_NVR.Name = "Chart_NVR";
             this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             series1.ChartArea = "ChartArea1";
@@ -204,18 +214,32 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.Chart_NVR.Series.Add(series1);
-            this.Chart_NVR.Size = new System.Drawing.Size(564, 472);
+            this.Chart_NVR.Size = new System.Drawing.Size(507, 472);
             this.Chart_NVR.TabIndex = 1;
             this.Chart_NVR.Text = "chart1";
             title1.Name = "Title";
             title1.Text = "График стоимости";
             this.Chart_NVR.Titles.Add(title1);
             // 
+            // ButtonDoneChart_NVR
+            // 
+            this.ButtonDoneChart_NVR.BackColor = System.Drawing.Color.SandyBrown;
+            this.ButtonDoneChart_NVR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDoneChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonDoneChart_NVR.Location = new System.Drawing.Point(745, 119);
+            this.ButtonDoneChart_NVR.Name = "ButtonDoneChart_NVR";
+            this.ButtonDoneChart_NVR.Size = new System.Drawing.Size(175, 72);
+            this.ButtonDoneChart_NVR.TabIndex = 10;
+            this.ButtonDoneChart_NVR.Text = "Выполнить";
+            this.ButtonDoneChart_NVR.UseVisualStyleBackColor = false;
+            this.ButtonDoneChart_NVR.Click += new System.EventHandler(this.ButtonDoneChart_NVR_Click);
+            // 
             // FormChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.ButtonDoneChart_NVR);
             this.Controls.Add(this.Chart_NVR);
             this.Controls.Add(this.ButtonOpenChart_NVR);
             this.Controls.Add(this.GroupBoxChart_NVR);
@@ -252,5 +276,6 @@
         private System.Windows.Forms.OpenFileDialog OpenFileDialogChart_NVR;
         private System.Windows.Forms.Panel PanelLeftChart_NVR;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_NVR;
+        private System.Windows.Forms.Button ButtonDoneChart_NVR;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
 {
     public class DataService
@@ -30,5 +31,36 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
             }
             return matrix;
         }
+
+        public int CalculateSum(int[] valueSum)
+        {
+            int sum = 0;
+            
+           
+            for (int i = 0; i < valueSum.Length; i++)
+            {
+               sum += valueSum[i];
+            }
+           
+            return sum;
+        }
+
+        public double CalculateAverage(int[] values)
+        {
+            double average = 0;
+
+            double sumAverage = 0; 
+            int count = values.Length;
+
+            for (int i = 0; i < count; i++)
+            {
+                sumAverage += values[i];
+            }
+            average = (sumAverage / count)*10;
+
+            return Math.Round(average, 2);
+        }
+
+
     }
 }

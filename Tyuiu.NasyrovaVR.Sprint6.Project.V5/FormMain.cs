@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         static int columns;
         static string openFilePath;
         DataService ds = new DataService();
-
+        
         private void ButtonChart_NVR_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -48,37 +49,64 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ButtonOpen_NVR_Click(object sender, EventArgs e)
         {
-            OpenFileDialogMain_NVR.ShowDialog();
-            openFilePath = OpenFileDialogMain_NVR.FileName;
-
-            string[,] matrix = ds.LoadFromDataFile(openFilePath);
-
-            //количество строк и столбцов в массиве matrix
-            rows = matrix.GetLength(0);
-            columns = matrix.GetLength(1);
-
-
-            //количество строк и столбцов
-            DataGridViewMain_NVR.RowCount = 150;
-            DataGridViewMain_NVR.ColumnCount = 20;
-
-            //ширина столбцов
-            for (int i = 0; i < rows; i++)
+            try
             {
-                DataGridViewMain_NVR.Columns[i].Width = 150;
-            }
+                OpenFileDialogMain_NVR.ShowDialog();
+                openFilePath = OpenFileDialogMain_NVR.FileName;
 
-            //добавление данных
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
+                string[,] matrix = ds.LoadFromDataFile(openFilePath);
+
+                //количество строк и столбцов в массиве matrix
+                rows = matrix.GetLength(0);
+                columns = matrix.GetLength(1);
+
+
+                //количество строк и столбцов
+                DataGridViewMain_NVR.RowCount = 150;
+                DataGridViewMain_NVR.ColumnCount = 20;
+
+                //ширина столбцов
+                for (int i = 0; i < rows; i++)
                 {
-                    DataGridViewMain_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                    DataGridViewMain_NVR.Columns[i].Width = 150;
+                }
+
+                //добавление данных
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        DataGridViewMain_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                    }
+                }
+
+                DataGridViewMain_NVR.ScrollBars = ScrollBars.Both;
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonSave_NVR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialogMain_NVR.FileName = ".csv";
+                SaveFileDialogMain_NVR.InitialDirectory = @":L";
+                SaveFileDialogMain_NVR.ShowDialog();
+                string path = SaveFileDialogMain_NVR.FileName;
+                FileInfo fileInfo = new FileInfo(path);
+                bool fileExists = fileInfo.Exists;
+                if (fileExists)
+                {
+                    File.Delete(path);
                 }
             }
-
-            DataGridViewMain_NVR.ScrollBars = ScrollBars.Both;
-
+            catch
+            {
+                MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TextBoxSearch_NVR_TextChanged(object sender, EventArgs e)
@@ -124,16 +152,17 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-       
-
-        private void ComboBoxSort_NVR_SelectedIndexChanged(object sender, EventArgs e)
+        private void ButtonSum_NVR_Click(object sender, EventArgs e)
         {
-            if (ComboBoxSort_NVR.SelectedItem != null) 
+            try
             {
-                int columnIndex = 4; 
+                int[] values = new int[DataGridViewMain_NVR.Rows.Count];
 
-                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+                for (int i = 0; i <= DataGridViewMain_NVR.Rows.Count - 1; i++)
                 {
+                    int valuesSum;
+                    if (DataGridViewMain_NVR.Rows[i].Cells[3].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[3].Value.ToString(), out valuesSum))
+                    {
                         values[i] = valuesSum;
                     }
                 }
@@ -141,25 +170,60 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 TextBoxSum_NVR.Text = sum.ToString();
             }
             catch 
+            {
+                MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonAverage_NVR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int[] valuesAv = new int[DataGridViewMain_NVR.Rows.Count];
+
+                for (int i = 0; i < DataGridViewMain_NVR.Rows.Count; i++)
+                {
+                    int valuesAverage;
+                    if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString(), out valuesAverage))
                     {
-                        row.Cells[columnIndex].Value = cellValue;
+                        valuesAv[i] = valuesAverage;
                     }
-
                 }
+                double average = ds.CalculateAverage(valuesAv);
+                TextBoxAverage_NVR.Text = average.ToString();
+            }
+            catch 
+            {
+                MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                DataGridViewColumn column = DataGridViewMain_NVR.Columns[4];
-                string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
-
-                if (selectedItem == "Max")
+        private void ButtonDelete_NVR_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewMain_NVR.RowCount != 0)
+            {
+                int valueDel = 0;
+                var res = MessageBox.Show($"{"Удалить данную строку?"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes) valueDel = 1;
+                if (valueDel == 1)
                 {
-                    DataGridViewMain_NVR.Sort(column, ListSortDirection.Ascending); //поменять
-                }
-                else if (selectedItem == "Min")
-                {
-                    DataGridViewMain_NVR.Sort(column, ListSortDirection.Descending); 
+                    int del = DataGridViewMain_NVR.CurrentCell.RowIndex;
+                    DataGridViewMain_NVR.Rows.Remove(DataGridViewMain_NVR.Rows[del]);
                 }
             }
+            else MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
+        private void ButtonAdd_NVR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewMain_NVR.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

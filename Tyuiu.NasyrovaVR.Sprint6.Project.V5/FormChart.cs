@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib;
 
 namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
@@ -62,6 +63,31 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
 
             DataGridViewChart_NVR.ScrollBars = ScrollBars.Both;
+        }
+
+        private void ComboBoxChart_NVR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string valueFilt = ComboBoxChart_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+
+            foreach (DataGridViewRow row in DataGridViewChart_NVR.Rows)
+            {
+                if (!row.IsNewRow) // проверка новая ли строка
+                {
+                    if (row.Cells["CategoryCh"].Value != null && row.Cells["CategoryCh"].Value.ToString() == valueFilt)
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void ButtonDoneChart_NVR_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
