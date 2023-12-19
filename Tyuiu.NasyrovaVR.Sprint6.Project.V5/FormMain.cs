@@ -134,8 +134,13 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
                 foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
                 {
-                    int cellValue;
-                    if (row.Cells[columnIndex].Value != null && int.TryParse(row.Cells[columnIndex].Value.ToString(), out cellValue))
+                        values[i] = valuesSum;
+                    }
+                }
+                int sum = ds.CalculateSum(values);
+                TextBoxSum_NVR.Text = sum.ToString();
+            }
+            catch 
                     {
                         row.Cells[columnIndex].Value = cellValue;
                     }
