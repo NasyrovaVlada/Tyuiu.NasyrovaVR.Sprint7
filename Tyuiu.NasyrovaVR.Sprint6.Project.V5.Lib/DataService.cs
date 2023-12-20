@@ -56,7 +56,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
             {
                 sumAverage += values[i];
             }
-            average = (sumAverage / count)*10;
+            average = (sumAverage / count);
 
             return Math.Round(average, 2);
         }

@@ -55,12 +55,12 @@
             this.ButtonAdd_NVR = new System.Windows.Forms.Button();
             this.ButtonSum_NVR = new System.Windows.Forms.Button();
             this.ButtonAverage_NVR = new System.Windows.Forms.Button();
+            this.ButtonDelete_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogMain_NVR = new System.Windows.Forms.OpenFileDialog();
             this.PanelLeft_NVR = new System.Windows.Forms.Panel();
             this.TextBoxSum_NVR = new System.Windows.Forms.TextBox();
             this.TextBoxAverage_NVR = new System.Windows.Forms.TextBox();
             this.SaveFileDialogMain_NVR = new System.Windows.Forms.SaveFileDialog();
-            this.ButtonDelete_NVR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -166,6 +166,7 @@
             this.ComboBoxSort_NVR.Name = "ComboBoxSort_NVR";
             this.ComboBoxSort_NVR.Size = new System.Drawing.Size(159, 29);
             this.ComboBoxSort_NVR.TabIndex = 0;
+            this.ComboBoxSort_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSort_NVR_SelectedIndexChanged);
             // 
             // GroupBoxFilt_NVR
             // 
@@ -193,7 +194,7 @@
             this.ComboBoxFilt_NVR.Name = "ComboBoxFilt_NVR";
             this.ComboBoxFilt_NVR.Size = new System.Drawing.Size(159, 29);
             this.ComboBoxFilt_NVR.TabIndex = 0;
-            this.ComboBoxFilt_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFilt_NVR_SelectedIndexChanged);
+            this.ComboBoxFilt_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFilt_NVR_SelectedIndexChanged_1);
             // 
             // LabelSearch_NVR
             // 
@@ -339,6 +340,19 @@
             this.ButtonAverage_NVR.UseVisualStyleBackColor = false;
             this.ButtonAverage_NVR.Click += new System.EventHandler(this.ButtonAverage_NVR_Click);
             // 
+            // ButtonDelete_NVR
+            // 
+            this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
+            this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDelete_NVR.Location = new System.Drawing.Point(749, 292);
+            this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
+            this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonDelete_NVR.TabIndex = 18;
+            this.ToolTip_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
+            this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
+            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
+            // 
             // OpenFileDialogMain_NVR
             // 
             this.OpenFileDialogMain_NVR.FileName = "openFileDialog1";
@@ -373,19 +387,6 @@
             this.TextBoxAverage_NVR.ReadOnly = true;
             this.TextBoxAverage_NVR.Size = new System.Drawing.Size(171, 35);
             this.TextBoxAverage_NVR.TabIndex = 17;
-            // 
-            // ButtonDelete_NVR
-            // 
-            this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
-            this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonDelete_NVR.Location = new System.Drawing.Point(749, 292);
-            this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
-            this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonDelete_NVR.TabIndex = 18;
-            this.ToolTip_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
-            this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
-            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
             // 
             // FormMain
             // 

@@ -62,7 +62,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
 
                 //количество строк и столбцов
-                DataGridViewMain_NVR.RowCount = 150;
+                DataGridViewMain_NVR.RowCount = 15;
                 DataGridViewMain_NVR.ColumnCount = 20;
 
                 //ширина столбцов
@@ -134,22 +134,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ComboBoxFilt_NVR_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string valueFilt = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
 
-            foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
-            {
-                if (!row.IsNewRow) // проверка новая ли строка
-                {
-                    if (row.Cells["Category"].Value != null && row.Cells["Category"].Value.ToString() == valueFilt)
-                    {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        row.Visible = false;
-                    }
-                }
-            }
         }
 
         private void ButtonSum_NVR_Click(object sender, EventArgs e)
@@ -223,6 +208,70 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             catch
             {
                 MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ComboBoxFilt_NVR_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string valueFilt = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+
+            for (int i = 0; i < DataGridViewMain_NVR.Rows.Count; i++)
+            {
+                if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null)
+                {
+                    string cellValue = DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString();
+                    if (cellValue != valueFilt)
+                    {
+                        DataGridViewMain_NVR.Rows[i].Visible = false;
+                    }
+                    else
+                    {
+                        DataGridViewMain_NVR.Rows[i].Visible = true;
+                    }
+                }
+            }
+        }
+
+        private void ComboBoxSort_NVR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxSort_NVR.SelectedItem != null)
+            {
+                int columnIndex = 4;
+                bool Num = true;
+
+                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+                {
+                    int cellValue;
+                    if (row.Cells[columnIndex].Value != null && int.TryParse(row.Cells[columnIndex].Value.ToString(), out cellValue))
+                    {
+                        row.Cells[columnIndex].Value = cellValue;
+                    }
+                    else
+                    {
+                        row.Cells[columnIndex].Value = 0; // Присваиваем нулевое значение для неправильных данных
+                        Num = false;
+                    }
+
+                }
+                if (Num) 
+                {
+                    DataGridViewColumn column = DataGridViewMain_NVR.Columns[4];
+                    string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
+
+                    if (selectedItem == "Min")
+                    {
+                        DataGridViewMain_NVR.Sort(column, ListSortDirection.Ascending);
+                    }
+                    if (selectedItem == "Max")
+                    {
+                        DataGridViewMain_NVR.Sort(column, ListSortDirection.Descending);
+                    }
+                }
+                else
+                {
+
+                    MessageBox.Show("Невозможно выполнить сортировку");
+                }
             }
         }
     }
