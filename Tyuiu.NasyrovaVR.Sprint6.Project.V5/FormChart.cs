@@ -43,7 +43,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
 
-                DataGridViewChart_NVR.RowCount = rows;
+                DataGridViewChart_NVR.RowCount = rows+1;
                 DataGridViewChart_NVR.ColumnCount = columns;
 
                 //добавление данных
@@ -74,6 +74,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     if (row.Cells["CategoryCh"].Value != null && row.Cells["CategoryCh"].Value.ToString() == valueFilt)
                     {
                         row.Visible = true;
+
                     }
                     else
                     {
@@ -85,7 +86,37 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ButtonDoneChart_NVR_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                this.Chart_NVR.ChartAreas[1].AxisX.Title = "Название продукта";
+                this.Chart_NVR.ChartAreas[4].AxisY.Title = "Стоимость продукта";
+                Chart_NVR.Series.Clear();
+
+                // новая серия данных для диаграммы
+                Chart_NVR.Series.Add("DataSeries");
+                Chart_NVR.Series["DataSeries"].ChartType = SeriesChartType.Column; // колоночная диаграмма
+
+                foreach (DataGridViewRow row in DataGridViewChart_NVR.Rows)
+                {
+                    if (row.Cells[1].Value != null && row.Cells[4].Value != null)
+                    {
+                        if (row.Visible)
+                        {
+                            string labelOne = row.Cells[1].Value.ToString();
+                            int valueFour = Convert.ToInt32(row.Cells[4].Value);
+
+                            // добавление данных в серию для диаграммы
+                            Chart_NVR.Series["DataSeries"].Points.AddXY(labelOne, valueFour);
+                        }
+                    }
+                }
+
+                Chart_NVR.Update();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ButtonReturnChart_NVR_Click(object sender, EventArgs e)

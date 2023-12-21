@@ -41,7 +41,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
 
-                DataGridViewSuppliers_NVR.RowCount = rows;
+                DataGridViewSuppliers_NVR.RowCount = rows+1;
                 DataGridViewSuppliers_NVR.ColumnCount = columns;
 
                 //добавление данных
@@ -64,18 +64,20 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         private void ComboBoxFiltSuppliers_NVR_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedValueSuppliers = ComboBoxFiltSuppliers_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
-
-            foreach (DataGridViewRow row in DataGridViewSuppliers_NVR.Rows)
+            if (!string.IsNullOrEmpty(selectedValueSuppliers))
             {
-                if (!row.IsNewRow) // проверка новая ли строка
+                foreach (DataGridViewRow row in DataGridViewSuppliers_NVR.Rows)
                 {
-                    if (row.Cells["MonthS"].Value != null && row.Cells["MonthS"].Value.ToString() == selectedValueSuppliers)
+                    if (!row.IsNewRow) // проверка новая ли строка
                     {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        row.Visible = false;
+                        if (row.Cells["MonthS"].Value != null && row.Cells["MonthS"].Value.ToString() == selectedValueSuppliers)
+                        {
+                            row.Visible = true;
+                        }
+                        else
+                        {
+                            row.Visible = false;
+                        }
                     }
                 }
             }

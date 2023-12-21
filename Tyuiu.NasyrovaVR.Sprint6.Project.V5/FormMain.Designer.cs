@@ -56,12 +56,12 @@
             this.ButtonSum_NVR = new System.Windows.Forms.Button();
             this.ButtonAverage_NVR = new System.Windows.Forms.Button();
             this.ButtonDelete_NVR = new System.Windows.Forms.Button();
+            this.ButtonReturn_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogMain_NVR = new System.Windows.Forms.OpenFileDialog();
             this.PanelLeft_NVR = new System.Windows.Forms.Panel();
             this.TextBoxSum_NVR = new System.Windows.Forms.TextBox();
             this.TextBoxAverage_NVR = new System.Windows.Forms.TextBox();
             this.SaveFileDialogMain_NVR = new System.Windows.Forms.SaveFileDialog();
-            this.ButtonReturn_NVR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -162,8 +162,7 @@
             this.ComboBoxSort_NVR.FormattingEnabled = true;
             this.ComboBoxSort_NVR.Items.AddRange(new object[] {
             "Max",
-            "Min",
-            "Все"});
+            "Min"});
             this.ComboBoxSort_NVR.Location = new System.Drawing.Point(6, 42);
             this.ComboBoxSort_NVR.Name = "ComboBoxSort_NVR";
             this.ComboBoxSort_NVR.Size = new System.Drawing.Size(204, 29);
@@ -295,6 +294,7 @@
             this.ButtonHelp_NVR.TabIndex = 11;
             this.ToolTip_NVR.SetToolTip(this.ButtonHelp_NVR, "Руководство пользователя");
             this.ButtonHelp_NVR.UseVisualStyleBackColor = true;
+            this.ButtonHelp_NVR.Click += new System.EventHandler(this.ButtonHelp_NVR_Click);
             // 
             // ToolTip_NVR
             // 
@@ -355,6 +355,19 @@
             this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
             this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
             // 
+            // ButtonReturn_NVR
+            // 
+            this.ButtonReturn_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonReturn_NVR.BackgroundImage")));
+            this.ButtonReturn_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonReturn_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonReturn_NVR.Location = new System.Drawing.Point(653, 354);
+            this.ButtonReturn_NVR.Name = "ButtonReturn_NVR";
+            this.ButtonReturn_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonReturn_NVR.TabIndex = 19;
+            this.ToolTip_NVR.SetToolTip(this.ButtonReturn_NVR, "Вернуть таблицу в исходное состояние");
+            this.ButtonReturn_NVR.UseVisualStyleBackColor = true;
+            this.ButtonReturn_NVR.Click += new System.EventHandler(this.ButtonReturn_NVR_Click);
+            // 
             // OpenFileDialogMain_NVR
             // 
             this.OpenFileDialogMain_NVR.FileName = "openFileDialog1";
@@ -389,19 +402,6 @@
             this.TextBoxAverage_NVR.ReadOnly = true;
             this.TextBoxAverage_NVR.Size = new System.Drawing.Size(210, 35);
             this.TextBoxAverage_NVR.TabIndex = 17;
-            // 
-            // ButtonReturn_NVR
-            // 
-            this.ButtonReturn_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonReturn_NVR.BackgroundImage")));
-            this.ButtonReturn_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonReturn_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonReturn_NVR.Location = new System.Drawing.Point(653, 354);
-            this.ButtonReturn_NVR.Name = "ButtonReturn_NVR";
-            this.ButtonReturn_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonReturn_NVR.TabIndex = 19;
-            this.ToolTip_NVR.SetToolTip(this.ButtonReturn_NVR, "Вернуть таблицу в исходное состояние");
-            this.ButtonReturn_NVR.UseVisualStyleBackColor = true;
-            this.ButtonReturn_NVR.Click += new System.EventHandler(this.ButtonReturn_NVR_Click);
             // 
             // FormMain
             // 

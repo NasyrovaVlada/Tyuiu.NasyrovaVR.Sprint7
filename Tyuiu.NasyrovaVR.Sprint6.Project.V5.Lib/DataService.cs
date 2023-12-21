@@ -50,13 +50,13 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
             double average = 0;
 
             double sumAverage = 0; 
-            int count = values.Length;
+            
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < values.Length; i++)
             {
                 sumAverage += values[i];
             }
-            average = (sumAverage / count);
+            average = (sumAverage / values.Length);
 
             return Math.Round(average, 2);
         }

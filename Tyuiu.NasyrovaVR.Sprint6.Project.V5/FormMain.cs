@@ -16,7 +16,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 {
     public partial class FormMain : Form
     {
-        private DataView originalDataView;
+       
         public FormMain()
         {
             InitializeComponent();
@@ -45,6 +45,11 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
+        }
+        private void ButtonHelp_NVR_Click(object sender, EventArgs e)
+        {
+            FormGuide formGuide = new FormGuide();
+            formGuide.ShowDialog();
         }
 
         private void ButtonOpen_NVR_Click(object sender, EventArgs e)
@@ -85,13 +90,29 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             {
                 SaveFileDialogMain_NVR.FileName = ".csv";
                 SaveFileDialogMain_NVR.InitialDirectory = @":L";
-                SaveFileDialogMain_NVR.ShowDialog();
-                string path = SaveFileDialogMain_NVR.FileName;
-                FileInfo fileInfo = new FileInfo(path);
-                bool fileExists = fileInfo.Exists;
-                if (fileExists)
+                if (SaveFileDialogMain_NVR.ShowDialog() == DialogResult.OK)
                 {
-                    File.Delete(path);
+                    string savepath = SaveFileDialogMain_NVR.FileName;
+
+                    if (File.Exists(savepath)) File.Delete(savepath);
+
+                    int rows = DataGridViewMain_NVR.RowCount;
+                    int columns = DataGridViewMain_NVR.ColumnCount;
+
+                    StringBuilder strBuilder = new StringBuilder();
+
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < columns; j++)
+                        {
+                            strBuilder.Append(DataGridViewMain_NVR.Rows[i].Cells[j].Value);
+
+                            if (j != columns - 1) strBuilder.Append(";");
+                        }
+                        strBuilder.AppendLine();
+                    }
+                    File.WriteAllText(savepath, strBuilder.ToString(), Encoding.GetEncoding(1251));
+                    MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
@@ -132,18 +153,24 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             try
             {
-                int[] values = new int[DataGridViewMain_NVR.Rows.Count];
-
-                for (int i = 0; i <= DataGridViewMain_NVR.Rows.Count - 1; i++)
+                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
                 {
-                    int valuesSum;
-                    if (DataGridViewMain_NVR.Rows[i].Cells[3].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[3].Value.ToString(), out valuesSum))
+                    if (row.Visible)
                     {
-                        values[i] = valuesSum;
+                        int[] values = new int[DataGridViewMain_NVR.Rows.Count];
+
+                        for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++)
+                        {
+                            int valuesSum;
+                            if (DataGridViewMain_NVR.Rows[i].Cells[3].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[3].Value.ToString(), out valuesSum))
+                            {
+                                values[i] = valuesSum;
+                            }
+                        }
+                        int sum = ds.CalculateSum(values);
+                        TextBoxSum_NVR.Text = sum.ToString();
                     }
                 }
-                int sum = ds.CalculateSum(values);
-                TextBoxSum_NVR.Text = sum.ToString();
             }
             catch 
             {
@@ -155,9 +182,10 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             try
             {
-                int[] valuesAv = new int[DataGridViewMain_NVR.Rows.Count];
+                int visibleRowCount = DataGridViewMain_NVR.Rows.Cast<DataGridViewRow>().Count(row => row.Visible && !row.IsNewRow); // рассчитывает количество видимых строк кроме последней
+                int[] valuesAv = new int[visibleRowCount];
 
-                for (int i = 0; i < DataGridViewMain_NVR.Rows.Count; i++)
+                for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++)
                 {
                     int valuesAverage;
                     if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString(), out valuesAverage))
@@ -165,6 +193,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         valuesAv[i] = valuesAverage;
                     }
                 }
+
                 double average = ds.CalculateAverage(valuesAv);
                 TextBoxAverage_NVR.Text = average.ToString();
             }
@@ -225,14 +254,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     }
                 }
             }
-            else
-            {
-                // Если ComboBox очищен, то показываем все скрытые строки
-                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
-                {
-                    row.Visible = true;
-                }
-            }
+           
         }
 
         private void ComboBoxSort_NVR_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,6 +302,8 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 row.Visible = true;
             }
         }
+
+        
     }
 }
 

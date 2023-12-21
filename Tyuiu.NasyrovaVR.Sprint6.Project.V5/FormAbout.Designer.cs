@@ -36,7 +36,7 @@
             // TextBoxInfo_NVR
             // 
             this.TextBoxInfo_NVR.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxInfo_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextBoxInfo_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBoxInfo_NVR.Location = new System.Drawing.Point(12, 12);
             this.TextBoxInfo_NVR.Multiline = true;
             this.TextBoxInfo_NVR.Name = "TextBoxInfo_NVR";
