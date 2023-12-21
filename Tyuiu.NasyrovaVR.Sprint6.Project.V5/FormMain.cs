@@ -56,20 +56,11 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
                 string[,] matrix = ds.LoadFromDataFile(openFilePath);
 
-                //количество строк и столбцов в массиве matrix
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
 
-
-                //количество строк и столбцов
-                DataGridViewMain_NVR.RowCount = 15;
-                DataGridViewMain_NVR.ColumnCount = 20;
-
-                //ширина столбцов
-                for (int i = 0; i < rows; i++)
-                {
-                    DataGridViewMain_NVR.Columns[i].Width = 150;
-                }
+                DataGridViewMain_NVR.RowCount = rows+1;
+                DataGridViewMain_NVR.ColumnCount = columns;
 
                 //добавление данных
                 for (int i = 0; i < rows; i++)
@@ -79,7 +70,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         DataGridViewMain_NVR.Rows[i].Cells[j].Value = matrix[i, j];
                     }
                 }
-
+                DataGridViewMain_NVR.AutoResizeColumns();
                 DataGridViewMain_NVR.ScrollBars = ScrollBars.Both;
             }
             catch
@@ -196,7 +187,10 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     DataGridViewMain_NVR.Rows.Remove(DataGridViewMain_NVR.Rows[del]);
                 }
             }
-            else MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ButtonAdd_NVR_Click(object sender, EventArgs e)
@@ -214,20 +208,29 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         private void ComboBoxFilt_NVR_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string valueFilt = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
-
-            for (int i = 0; i < DataGridViewMain_NVR.Rows.Count; i++)
+            if (!string.IsNullOrEmpty(valueFilt))
             {
-                if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null)
+                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
                 {
-                    string cellValue = DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString();
-                    if (cellValue != valueFilt)
+                    if (!row.IsNewRow) // проверка новая ли строка
                     {
-                        DataGridViewMain_NVR.Rows[i].Visible = false;
+                        if (row.Cells["Category"].Value != null && row.Cells["Category"].Value.ToString() == valueFilt)
+                        {
+                            row.Visible = true;
+                        }
+                        else
+                        {
+                            row.Visible = false;
+                        }
                     }
-                    else
-                    {
-                        DataGridViewMain_NVR.Rows[i].Visible = true;
-                    }
+                }
+            }
+            else
+            {
+                // Если ComboBox очищен, то показываем все скрытые строки
+                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+                {
+                    row.Visible = true;
                 }
             }
         }
@@ -237,8 +240,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             if (ComboBoxSort_NVR.SelectedItem != null)
             {
                 int columnIndex = 4;
-                bool Num = true;
-
+                string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
                 foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
                 {
                     int cellValue;
@@ -248,15 +250,12 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     }
                     else
                     {
-                        row.Cells[columnIndex].Value = 0; // Присваиваем нулевое значение для неправильных данных
-                        Num = false;
-                    }
 
+                    }
                 }
-                if (Num) 
+                try
                 {
                     DataGridViewColumn column = DataGridViewMain_NVR.Columns[4];
-                    string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
 
                     if (selectedItem == "Min")
                     {
@@ -267,12 +266,20 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         DataGridViewMain_NVR.Sort(column, ListSortDirection.Descending);
                     }
                 }
-                else
+                catch
                 {
-
-                    MessageBox.Show("Невозможно выполнить сортировку");
+                    MessageBox.Show("Невозможно выполнить сортировку", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void ButtonReturn_NVR_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+            {
+                row.Visible = true;
             }
         }
     }
 }
+

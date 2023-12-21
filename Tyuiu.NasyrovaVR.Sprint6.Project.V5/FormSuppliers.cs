@@ -31,36 +31,34 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ButtonOpenSuppliers_NVR_Click(object sender, EventArgs e)
         {
-            OpenFileDialogSuppliers_NVR.ShowDialog();
-            openFilePath = OpenFileDialogSuppliers_NVR.FileName;
-
-            string[,] matrix = ds.LoadFromDataFile(openFilePath);
-
-            //количество строк и столбцов в массиве matrix
-            rows = matrix.GetLength(0);
-            columns = matrix.GetLength(1);
-
-
-            //количество строк и столбцов
-            DataGridViewSuppliers_NVR.RowCount = 150;
-            DataGridViewSuppliers_NVR.ColumnCount = 20;
-
-            //ширина столбцов
-            for (int i = 0; i < rows; i++)
+            try
             {
-                DataGridViewSuppliers_NVR.Columns[i].Width = 150;
-            }
+                OpenFileDialogSuppliers_NVR.ShowDialog();
+                openFilePath = OpenFileDialogSuppliers_NVR.FileName;
 
-            //добавление данных
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
+                string[,] matrix = ds.LoadFromDataFile(openFilePath);
+
+                rows = matrix.GetLength(0);
+                columns = matrix.GetLength(1);
+
+                DataGridViewSuppliers_NVR.RowCount = rows;
+                DataGridViewSuppliers_NVR.ColumnCount = columns;
+
+                //добавление данных
+                for (int i = 0; i < rows; i++)
                 {
-                    DataGridViewSuppliers_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                    for (int j = 0; j < columns; j++)
+                    {
+                        DataGridViewSuppliers_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                    }
                 }
+                DataGridViewSuppliers_NVR.AutoResizeColumns();
+                DataGridViewSuppliers_NVR.ScrollBars = ScrollBars.Both;
             }
-
-            DataGridViewSuppliers_NVR.ScrollBars = ScrollBars.Both;
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ComboBoxFiltSuppliers_NVR_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +78,14 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         row.Visible = false;
                     }
                 }
+            }
+        }
+
+        private void ButtonReturnSuppliers_NVR_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in DataGridViewSuppliers_NVR.Rows)
+            {
+                row.Visible = true;
             }
         }
     }

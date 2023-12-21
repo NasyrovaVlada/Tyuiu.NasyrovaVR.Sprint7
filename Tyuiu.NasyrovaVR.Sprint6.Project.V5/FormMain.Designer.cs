@@ -61,6 +61,7 @@
             this.TextBoxSum_NVR = new System.Windows.Forms.TextBox();
             this.TextBoxAverage_NVR = new System.Windows.Forms.TextBox();
             this.SaveFileDialogMain_NVR = new System.Windows.Forms.SaveFileDialog();
+            this.ButtonReturn_NVR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMain_NVR)).BeginInit();
             this.GroupBoxSort_NVR.SuspendLayout();
             this.GroupBoxFilt_NVR.SuspendLayout();
@@ -74,9 +75,9 @@
             this.ButtonChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonChart_NVR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonChart_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonChart_NVR.Location = new System.Drawing.Point(865, 457);
+            this.ButtonChart_NVR.Location = new System.Drawing.Point(849, 456);
             this.ButtonChart_NVR.Name = "ButtonChart_NVR";
-            this.ButtonChart_NVR.Size = new System.Drawing.Size(371, 74);
+            this.ButtonChart_NVR.Size = new System.Drawing.Size(393, 74);
             this.ButtonChart_NVR.TabIndex = 0;
             this.ButtonChart_NVR.Text = "Построить график стоимости";
             this.ButtonChart_NVR.UseVisualStyleBackColor = false;
@@ -88,9 +89,9 @@
             this.ButtonSuppliers_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSuppliers_NVR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSuppliers_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonSuppliers_NVR.Location = new System.Drawing.Point(865, 552);
+            this.ButtonSuppliers_NVR.Location = new System.Drawing.Point(849, 552);
             this.ButtonSuppliers_NVR.Name = "ButtonSuppliers_NVR";
-            this.ButtonSuppliers_NVR.Size = new System.Drawing.Size(371, 74);
+            this.ButtonSuppliers_NVR.Size = new System.Drawing.Size(393, 74);
             this.ButtonSuppliers_NVR.TabIndex = 1;
             this.ButtonSuppliers_NVR.Text = "Информация о поставщиках";
             this.ButtonSuppliers_NVR.UseVisualStyleBackColor = false;
@@ -111,7 +112,7 @@
             this.DataGridViewMain_NVR.Name = "DataGridViewMain_NVR";
             this.DataGridViewMain_NVR.RowHeadersVisible = false;
             this.DataGridViewMain_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.DataGridViewMain_NVR.Size = new System.Drawing.Size(743, 581);
+            this.DataGridViewMain_NVR.Size = new System.Drawing.Size(647, 581);
             this.DataGridViewMain_NVR.TabIndex = 2;
             // 
             // Code
@@ -149,22 +150,23 @@
             // 
             this.GroupBoxSort_NVR.Controls.Add(this.ComboBoxSort_NVR);
             this.GroupBoxSort_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxSort_NVR.Location = new System.Drawing.Point(1071, 168);
+            this.GroupBoxSort_NVR.Location = new System.Drawing.Point(1026, 168);
             this.GroupBoxSort_NVR.Name = "GroupBoxSort_NVR";
-            this.GroupBoxSort_NVR.Size = new System.Drawing.Size(171, 77);
+            this.GroupBoxSort_NVR.Size = new System.Drawing.Size(216, 77);
             this.GroupBoxSort_NVR.TabIndex = 3;
             this.GroupBoxSort_NVR.TabStop = false;
-            this.GroupBoxSort_NVR.Text = "Сортировка";
+            this.GroupBoxSort_NVR.Text = "Сортировка по стоимости";
             // 
             // ComboBoxSort_NVR
             // 
             this.ComboBoxSort_NVR.FormattingEnabled = true;
             this.ComboBoxSort_NVR.Items.AddRange(new object[] {
             "Max",
-            "Min"});
+            "Min",
+            "Все"});
             this.ComboBoxSort_NVR.Location = new System.Drawing.Point(6, 42);
             this.ComboBoxSort_NVR.Name = "ComboBoxSort_NVR";
-            this.ComboBoxSort_NVR.Size = new System.Drawing.Size(159, 29);
+            this.ComboBoxSort_NVR.Size = new System.Drawing.Size(204, 29);
             this.ComboBoxSort_NVR.TabIndex = 0;
             this.ComboBoxSort_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSort_NVR_SelectedIndexChanged);
             // 
@@ -172,7 +174,7 @@
             // 
             this.GroupBoxFilt_NVR.Controls.Add(this.ComboBoxFilt_NVR);
             this.GroupBoxFilt_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxFilt_NVR.Location = new System.Drawing.Point(865, 168);
+            this.GroupBoxFilt_NVR.Location = new System.Drawing.Point(849, 168);
             this.GroupBoxFilt_NVR.Name = "GroupBoxFilt_NVR";
             this.GroupBoxFilt_NVR.Size = new System.Drawing.Size(171, 77);
             this.GroupBoxFilt_NVR.TabIndex = 4;
@@ -202,7 +204,7 @@
             this.LabelSearch_NVR.BackColor = System.Drawing.SystemColors.Control;
             this.LabelSearch_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelSearch_NVR.ForeColor = System.Drawing.Color.Chocolate;
-            this.LabelSearch_NVR.Location = new System.Drawing.Point(859, 110);
+            this.LabelSearch_NVR.Location = new System.Drawing.Point(843, 110);
             this.LabelSearch_NVR.Name = "LabelSearch_NVR";
             this.LabelSearch_NVR.Size = new System.Drawing.Size(98, 36);
             this.LabelSearch_NVR.TabIndex = 5;
@@ -223,7 +225,7 @@
             this.ButtonOpen_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpen_NVR.BackgroundImage")));
             this.ButtonOpen_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonOpen_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpen_NVR.Location = new System.Drawing.Point(749, 106);
+            this.ButtonOpen_NVR.Location = new System.Drawing.Point(653, 106);
             this.ButtonOpen_NVR.Name = "ButtonOpen_NVR";
             this.ButtonOpen_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonOpen_NVR.TabIndex = 7;
@@ -236,7 +238,7 @@
             this.ButtonSave_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSave_NVR.BackgroundImage")));
             this.ButtonSave_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonSave_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonSave_NVR.Location = new System.Drawing.Point(749, 168);
+            this.ButtonSave_NVR.Location = new System.Drawing.Point(653, 168);
             this.ButtonSave_NVR.Name = "ButtonSave_NVR";
             this.ButtonSave_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonSave_NVR.TabIndex = 8;
@@ -304,7 +306,7 @@
             this.ButtonAdd_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonAdd_NVR.BackgroundImage")));
             this.ButtonAdd_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonAdd_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAdd_NVR.Location = new System.Drawing.Point(749, 230);
+            this.ButtonAdd_NVR.Location = new System.Drawing.Point(653, 230);
             this.ButtonAdd_NVR.Name = "ButtonAdd_NVR";
             this.ButtonAdd_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonAdd_NVR.TabIndex = 12;
@@ -317,7 +319,7 @@
             this.ButtonSum_NVR.BackColor = System.Drawing.Color.SandyBrown;
             this.ButtonSum_NVR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSum_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonSum_NVR.Location = new System.Drawing.Point(865, 260);
+            this.ButtonSum_NVR.Location = new System.Drawing.Point(849, 260);
             this.ButtonSum_NVR.Name = "ButtonSum_NVR";
             this.ButtonSum_NVR.Size = new System.Drawing.Size(171, 59);
             this.ButtonSum_NVR.TabIndex = 14;
@@ -331,7 +333,7 @@
             this.ButtonAverage_NVR.BackColor = System.Drawing.Color.SandyBrown;
             this.ButtonAverage_NVR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAverage_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonAverage_NVR.Location = new System.Drawing.Point(865, 325);
+            this.ButtonAverage_NVR.Location = new System.Drawing.Point(849, 325);
             this.ButtonAverage_NVR.Name = "ButtonAverage_NVR";
             this.ButtonAverage_NVR.Size = new System.Drawing.Size(171, 59);
             this.ButtonAverage_NVR.TabIndex = 16;
@@ -345,7 +347,7 @@
             this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
             this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonDelete_NVR.Location = new System.Drawing.Point(749, 292);
+            this.ButtonDelete_NVR.Location = new System.Drawing.Point(653, 292);
             this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
             this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonDelete_NVR.TabIndex = 18;
@@ -363,36 +365,50 @@
             this.PanelLeft_NVR.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeft_NVR.Location = new System.Drawing.Point(0, 100);
             this.PanelLeft_NVR.Name = "PanelLeft_NVR";
-            this.PanelLeft_NVR.Size = new System.Drawing.Size(743, 581);
+            this.PanelLeft_NVR.Size = new System.Drawing.Size(647, 581);
             this.PanelLeft_NVR.TabIndex = 13;
             // 
             // TextBoxSum_NVR
             // 
             this.TextBoxSum_NVR.BackColor = System.Drawing.Color.White;
             this.TextBoxSum_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TextBoxSum_NVR.Location = new System.Drawing.Point(1071, 274);
+            this.TextBoxSum_NVR.Location = new System.Drawing.Point(1032, 274);
             this.TextBoxSum_NVR.Multiline = true;
             this.TextBoxSum_NVR.Name = "TextBoxSum_NVR";
             this.TextBoxSum_NVR.ReadOnly = true;
-            this.TextBoxSum_NVR.Size = new System.Drawing.Size(171, 35);
+            this.TextBoxSum_NVR.Size = new System.Drawing.Size(210, 35);
             this.TextBoxSum_NVR.TabIndex = 15;
             // 
             // TextBoxAverage_NVR
             // 
             this.TextBoxAverage_NVR.BackColor = System.Drawing.Color.White;
             this.TextBoxAverage_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TextBoxAverage_NVR.Location = new System.Drawing.Point(1071, 339);
+            this.TextBoxAverage_NVR.Location = new System.Drawing.Point(1032, 339);
             this.TextBoxAverage_NVR.Multiline = true;
             this.TextBoxAverage_NVR.Name = "TextBoxAverage_NVR";
             this.TextBoxAverage_NVR.ReadOnly = true;
-            this.TextBoxAverage_NVR.Size = new System.Drawing.Size(171, 35);
+            this.TextBoxAverage_NVR.Size = new System.Drawing.Size(210, 35);
             this.TextBoxAverage_NVR.TabIndex = 17;
+            // 
+            // ButtonReturn_NVR
+            // 
+            this.ButtonReturn_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonReturn_NVR.BackgroundImage")));
+            this.ButtonReturn_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonReturn_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonReturn_NVR.Location = new System.Drawing.Point(653, 354);
+            this.ButtonReturn_NVR.Name = "ButtonReturn_NVR";
+            this.ButtonReturn_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonReturn_NVR.TabIndex = 19;
+            this.ToolTip_NVR.SetToolTip(this.ButtonReturn_NVR, "Вернуть таблицу в исходное состояние");
+            this.ButtonReturn_NVR.UseVisualStyleBackColor = true;
+            this.ButtonReturn_NVR.Click += new System.EventHandler(this.ButtonReturn_NVR_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.ButtonReturn_NVR);
             this.Controls.Add(this.ButtonDelete_NVR);
             this.Controls.Add(this.TextBoxAverage_NVR);
             this.Controls.Add(this.ButtonAverage_NVR);
@@ -455,6 +471,7 @@
         private System.Windows.Forms.TextBox TextBoxAverage_NVR;
         private System.Windows.Forms.SaveFileDialog SaveFileDialogMain_NVR;
         private System.Windows.Forms.Button ButtonDelete_NVR;
+        private System.Windows.Forms.Button ButtonReturn_NVR;
     }
 }
 

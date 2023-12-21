@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChart));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.PanelTopChart_NVR = new System.Windows.Forms.Panel();
             this.LabelNameChart_NVR = new System.Windows.Forms.Label();
             this.ButtonBackChart_NVR = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@
             this.PanelLeftChart_NVR = new System.Windows.Forms.Panel();
             this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ButtonDoneChart_NVR = new System.Windows.Forms.Button();
+            this.ButtonReturnChart_NVR = new System.Windows.Forms.Button();
             this.PanelTopChart_NVR.SuspendLayout();
             this.GroupBoxChart_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewChart_NVR)).BeginInit();
@@ -142,7 +143,7 @@
             this.DataGridViewChart_NVR.Name = "DataGridViewChart_NVR";
             this.DataGridViewChart_NVR.RowHeadersVisible = false;
             this.DataGridViewChart_NVR.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DataGridViewChart_NVR.Size = new System.Drawing.Size(622, 581);
+            this.DataGridViewChart_NVR.Size = new System.Drawing.Size(599, 581);
             this.DataGridViewChart_NVR.TabIndex = 4;
             // 
             // CodeCh
@@ -180,10 +181,11 @@
             this.ButtonOpenChart_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonOpenChart_NVR.BackgroundImage")));
             this.ButtonOpenChart_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ButtonOpenChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(628, 106);
+            this.ButtonOpenChart_NVR.Location = new System.Drawing.Point(606, 106);
             this.ButtonOpenChart_NVR.Name = "ButtonOpenChart_NVR";
             this.ButtonOpenChart_NVR.Size = new System.Drawing.Size(79, 56);
             this.ButtonOpenChart_NVR.TabIndex = 8;
+            this.ToolTipChart_NVR.SetToolTip(this.ButtonOpenChart_NVR, "Загрузить данные");
             this.ButtonOpenChart_NVR.UseVisualStyleBackColor = true;
             this.ButtonOpenChart_NVR.Click += new System.EventHandler(this.ButtonOpenChart_NVR_Click);
             // 
@@ -197,29 +199,29 @@
             this.PanelLeftChart_NVR.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeftChart_NVR.Location = new System.Drawing.Point(0, 100);
             this.PanelLeftChart_NVR.Name = "PanelLeftChart_NVR";
-            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(622, 581);
+            this.PanelLeftChart_NVR.Size = new System.Drawing.Size(600, 581);
             this.PanelLeftChart_NVR.TabIndex = 9;
             // 
             // Chart_NVR
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Chart_NVR.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart_NVR.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.Chart_NVR.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Chart_NVR.Legends.Add(legend4);
             this.Chart_NVR.Location = new System.Drawing.Point(745, 197);
             this.Chart_NVR.Name = "Chart_NVR";
             this.Chart_NVR.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Chart_NVR.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.IsVisibleInLegend = false;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.Chart_NVR.Series.Add(series4);
             this.Chart_NVR.Size = new System.Drawing.Size(507, 472);
             this.Chart_NVR.TabIndex = 1;
             this.Chart_NVR.Text = "chart1";
-            title1.Name = "Title";
-            title1.Text = "График стоимости";
-            this.Chart_NVR.Titles.Add(title1);
+            title4.Name = "Title";
+            title4.Text = "График стоимости";
+            this.Chart_NVR.Titles.Add(title4);
             // 
             // ButtonDoneChart_NVR
             // 
@@ -231,14 +233,29 @@
             this.ButtonDoneChart_NVR.Size = new System.Drawing.Size(175, 72);
             this.ButtonDoneChart_NVR.TabIndex = 10;
             this.ButtonDoneChart_NVR.Text = "Выполнить";
+            this.ToolTipChart_NVR.SetToolTip(this.ButtonDoneChart_NVR, "Построить график стоимости продукта");
             this.ButtonDoneChart_NVR.UseVisualStyleBackColor = false;
             this.ButtonDoneChart_NVR.Click += new System.EventHandler(this.ButtonDoneChart_NVR_Click);
+            // 
+            // ButtonReturnChart_NVR
+            // 
+            this.ButtonReturnChart_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonReturnChart_NVR.BackgroundImage")));
+            this.ButtonReturnChart_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonReturnChart_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonReturnChart_NVR.Location = new System.Drawing.Point(606, 168);
+            this.ButtonReturnChart_NVR.Name = "ButtonReturnChart_NVR";
+            this.ButtonReturnChart_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonReturnChart_NVR.TabIndex = 21;
+            this.ToolTipChart_NVR.SetToolTip(this.ButtonReturnChart_NVR, "Вернуть таблицу в исходное состояние");
+            this.ButtonReturnChart_NVR.UseVisualStyleBackColor = true;
+            this.ButtonReturnChart_NVR.Click += new System.EventHandler(this.ButtonReturnChart_NVR_Click);
             // 
             // FormChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.ButtonReturnChart_NVR);
             this.Controls.Add(this.ButtonDoneChart_NVR);
             this.Controls.Add(this.Chart_NVR);
             this.Controls.Add(this.ButtonOpenChart_NVR);
@@ -277,5 +294,6 @@
         private System.Windows.Forms.Panel PanelLeftChart_NVR;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart_NVR;
         private System.Windows.Forms.Button ButtonDoneChart_NVR;
+        private System.Windows.Forms.Button ButtonReturnChart_NVR;
     }
 }

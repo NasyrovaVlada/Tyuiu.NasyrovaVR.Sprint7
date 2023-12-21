@@ -33,36 +33,34 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ButtonOpenChart_NVR_Click(object sender, EventArgs e)
         {
-            OpenFileDialogChart_NVR.ShowDialog();
-            openFilePath = OpenFileDialogChart_NVR.FileName;
-
-            string[,] matrix = ds.LoadFromDataFile(openFilePath);
-
-            //количество строк и столбцов в массиве matrix
-            rows = matrix.GetLength(0);
-            columns = matrix.GetLength(1);
-
-
-            //количество строк и столбцов
-            DataGridViewChart_NVR.RowCount = 150;
-            DataGridViewChart_NVR.ColumnCount = 20;
-
-            //ширина столбцов
-            for (int i = 0; i < rows; i++)
+            try
             {
-                DataGridViewChart_NVR.Columns[i].Width = 150;
-            }
+                OpenFileDialogChart_NVR.ShowDialog();
+                openFilePath = OpenFileDialogChart_NVR.FileName;
 
-            //добавление данных
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
+                string[,] matrix = ds.LoadFromDataFile(openFilePath);
+
+                rows = matrix.GetLength(0);
+                columns = matrix.GetLength(1);
+
+                DataGridViewChart_NVR.RowCount = rows;
+                DataGridViewChart_NVR.ColumnCount = columns;
+
+                //добавление данных
+                for (int i = 0; i < rows; i++)
                 {
-                    DataGridViewChart_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                    for (int j = 0; j < columns; j++)
+                    {
+                        DataGridViewChart_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                    }
                 }
+                DataGridViewChart_NVR.AutoResizeColumns();
+                DataGridViewChart_NVR.ScrollBars = ScrollBars.Both;
             }
-
-            DataGridViewChart_NVR.ScrollBars = ScrollBars.Both;
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ComboBoxChart_NVR_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,6 +86,14 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         private void ButtonDoneChart_NVR_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void ButtonReturnChart_NVR_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in DataGridViewChart_NVR.Rows)
+            {
+                row.Visible = true;
+            }
         }
     }
 }
