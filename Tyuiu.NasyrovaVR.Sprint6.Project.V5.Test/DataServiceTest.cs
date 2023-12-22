@@ -11,11 +11,11 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Test
         public void CheckCalculate()
         {
             DataService ds = new DataService();
-            int[] valuesSumTest = { 5, 10, 15, 20 };
+            double[] valuesSumTest = { 5, 10, 15, 20 };
 
-            int sum = ds.CalculateSum(valuesSumTest);
-            int wait = 50;
-            int res = ds.CalculateSum(valuesSumTest);
+            double sum = ds.CalculateSum(valuesSumTest);
+            double wait = 50;
+            double res = ds.CalculateSum(valuesSumTest);
             Assert.AreEqual(wait, res);
         }
 
@@ -23,7 +23,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Test
         public void CheckCalculateAverage ()
         {
             DataService ds = new DataService();
-            int[] valuesAverageTest = { 5, 10, 15, 20 };
+            double[] valuesAverageTest = { 5, 10, 15, 20 };
             double wait = 12.5; 
 
             double res = ds.CalculateAverage(valuesAverageTest);

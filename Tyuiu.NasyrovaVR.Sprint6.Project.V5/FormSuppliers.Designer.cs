@@ -43,8 +43,11 @@
             this.ButtonOpenSuppliers_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogSuppliers_NVR = new System.Windows.Forms.OpenFileDialog();
             this.PanelLeftSuppliers_NVR = new System.Windows.Forms.Panel();
-            this.ButtonReturnSuppliers_NVR = new System.Windows.Forms.Button();
             this.ToolTipSuppliers_NVR = new System.Windows.Forms.ToolTip(this.components);
+            this.ButtonAddSuppliers_NVR = new System.Windows.Forms.Button();
+            this.ButtonDelete_NVR = new System.Windows.Forms.Button();
+            this.ButtonSuppliersSave_NVR = new System.Windows.Forms.Button();
+            this.SaveFileDialogSuppliers_NVR = new System.Windows.Forms.SaveFileDialog();
             this.PanelTopSuppliers_NVR.SuspendLayout();
             this.GroupBoxFiltSuppliers_NVR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSuppliers_NVR)).BeginInit();
@@ -89,7 +92,7 @@
             // 
             this.GroupBoxFiltSuppliers_NVR.Controls.Add(this.ComboBoxFiltSuppliers_NVR);
             this.GroupBoxFiltSuppliers_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GroupBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(704, 230);
+            this.GroupBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(704, 354);
             this.GroupBoxFiltSuppliers_NVR.Name = "GroupBoxFiltSuppliers_NVR";
             this.GroupBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(272, 89);
             this.GroupBoxFiltSuppliers_NVR.TabIndex = 4;
@@ -102,7 +105,8 @@
             this.ComboBoxFiltSuppliers_NVR.Items.AddRange(new object[] {
             "декабрь",
             "январь",
-            "февраль"});
+            "февраль",
+            "Все"});
             this.ComboBoxFiltSuppliers_NVR.Location = new System.Drawing.Point(6, 42);
             this.ComboBoxFiltSuppliers_NVR.Name = "ComboBoxFiltSuppliers_NVR";
             this.ComboBoxFiltSuppliers_NVR.Size = new System.Drawing.Size(260, 29);
@@ -175,29 +179,57 @@
             this.PanelLeftSuppliers_NVR.Size = new System.Drawing.Size(698, 581);
             this.PanelLeftSuppliers_NVR.TabIndex = 9;
             // 
-            // ButtonReturnSuppliers_NVR
-            // 
-            this.ButtonReturnSuppliers_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonReturnSuppliers_NVR.BackgroundImage")));
-            this.ButtonReturnSuppliers_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonReturnSuppliers_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonReturnSuppliers_NVR.Location = new System.Drawing.Point(704, 168);
-            this.ButtonReturnSuppliers_NVR.Name = "ButtonReturnSuppliers_NVR";
-            this.ButtonReturnSuppliers_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonReturnSuppliers_NVR.TabIndex = 20;
-            this.ToolTipSuppliers_NVR.SetToolTip(this.ButtonReturnSuppliers_NVR, "Вернуть таблицу в исходное состояние");
-            this.ButtonReturnSuppliers_NVR.UseVisualStyleBackColor = true;
-            this.ButtonReturnSuppliers_NVR.Click += new System.EventHandler(this.ButtonReturnSuppliers_NVR_Click);
-            // 
             // ToolTipSuppliers_NVR
             // 
             this.ToolTipSuppliers_NVR.ToolTipTitle = "Подсказка";
+            // 
+            // ButtonAddSuppliers_NVR
+            // 
+            this.ButtonAddSuppliers_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonAddSuppliers_NVR.BackgroundImage")));
+            this.ButtonAddSuppliers_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonAddSuppliers_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAddSuppliers_NVR.Location = new System.Drawing.Point(704, 230);
+            this.ButtonAddSuppliers_NVR.Name = "ButtonAddSuppliers_NVR";
+            this.ButtonAddSuppliers_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonAddSuppliers_NVR.TabIndex = 13;
+            this.ToolTipSuppliers_NVR.SetToolTip(this.ButtonAddSuppliers_NVR, "Добавить строку");
+            this.ButtonAddSuppliers_NVR.UseVisualStyleBackColor = true;
+            this.ButtonAddSuppliers_NVR.Click += new System.EventHandler(this.ButtonAddSuppliers_NVR_Click);
+            // 
+            // ButtonDelete_NVR
+            // 
+            this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
+            this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDelete_NVR.Location = new System.Drawing.Point(704, 292);
+            this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
+            this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonDelete_NVR.TabIndex = 19;
+            this.ToolTipSuppliers_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
+            this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
+            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
+            // 
+            // ButtonSuppliersSave_NVR
+            // 
+            this.ButtonSuppliersSave_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSuppliersSave_NVR.BackgroundImage")));
+            this.ButtonSuppliersSave_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonSuppliersSave_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonSuppliersSave_NVR.Location = new System.Drawing.Point(704, 168);
+            this.ButtonSuppliersSave_NVR.Name = "ButtonSuppliersSave_NVR";
+            this.ButtonSuppliersSave_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonSuppliersSave_NVR.TabIndex = 20;
+            this.ToolTipSuppliers_NVR.SetToolTip(this.ButtonSuppliersSave_NVR, "Сохранить данные");
+            this.ButtonSuppliersSave_NVR.UseVisualStyleBackColor = true;
+            this.ButtonSuppliersSave_NVR.Click += new System.EventHandler(this.ButtonSuppliersSave_NVR_Click);
             // 
             // FormSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.ButtonReturnSuppliers_NVR);
+            this.Controls.Add(this.ButtonSuppliersSave_NVR);
+            this.Controls.Add(this.ButtonDelete_NVR);
+            this.Controls.Add(this.ButtonAddSuppliers_NVR);
             this.Controls.Add(this.PanelLeftSuppliers_NVR);
             this.Controls.Add(this.ButtonOpenSuppliers_NVR);
             this.Controls.Add(this.GroupBoxFiltSuppliers_NVR);
@@ -228,7 +260,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateS;
         private System.Windows.Forms.DataGridViewTextBoxColumn MonthS;
         private System.Windows.Forms.Panel PanelLeftSuppliers_NVR;
-        private System.Windows.Forms.Button ButtonReturnSuppliers_NVR;
         private System.Windows.Forms.ToolTip ToolTipSuppliers_NVR;
+        private System.Windows.Forms.Button ButtonAddSuppliers_NVR;
+        private System.Windows.Forms.Button ButtonDelete_NVR;
+        private System.Windows.Forms.Button ButtonSuppliersSave_NVR;
+        private System.Windows.Forms.SaveFileDialog SaveFileDialogSuppliers_NVR;
     }
 }

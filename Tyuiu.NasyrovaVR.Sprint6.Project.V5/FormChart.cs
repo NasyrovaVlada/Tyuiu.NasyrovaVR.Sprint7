@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.IO;
 using Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib;
 
 namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
@@ -80,6 +81,10 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     {
                         row.Visible = false;
                     }
+                    if (valueFilt == "Все")
+                    {
+                        row.Visible = true;
+                    }
                 }
             }
         }
@@ -88,13 +93,13 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             try
             {
-                this.Chart_NVR.ChartAreas[1].AxisX.Title = "Название продукта";
-                this.Chart_NVR.ChartAreas[4].AxisY.Title = "Стоимость продукта";
+                
                 Chart_NVR.Series.Clear();
 
                 // новая серия данных для диаграммы
                 Chart_NVR.Series.Add("DataSeries");
                 Chart_NVR.Series["DataSeries"].ChartType = SeriesChartType.Column; // колоночная диаграмма
+                
 
                 foreach (DataGridViewRow row in DataGridViewChart_NVR.Rows)
                 {
@@ -103,7 +108,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         if (row.Visible)
                         {
                             string labelOne = row.Cells[1].Value.ToString();
-                            int valueFour = Convert.ToInt32(row.Cells[4].Value);
+                            double valueFour = Convert.ToDouble(row.Cells[4].Value);
 
                             // добавление данных в серию для диаграммы
                             Chart_NVR.Series["DataSeries"].Points.AddXY(labelOne, valueFour);
@@ -119,11 +124,71 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-        private void ButtonReturnChart_NVR_Click(object sender, EventArgs e)
+        private void ButtonChartAdd_NVR_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in DataGridViewChart_NVR.Rows)
+            try
             {
-                row.Visible = true;
+                DataGridViewChart_NVR.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonSave_NVR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialogChart_NVR.FileName = ".csv";
+                SaveFileDialogChart_NVR.InitialDirectory = @":L";
+                if (SaveFileDialogChart_NVR.ShowDialog() == DialogResult.OK)
+                {
+                    string savepath = SaveFileDialogChart_NVR.FileName;
+
+                    if (File.Exists(savepath)) File.Delete(savepath);
+
+                    int rows = DataGridViewChart_NVR.RowCount;
+                    int columns = DataGridViewChart_NVR.ColumnCount;
+
+                    StringBuilder strBuilder = new StringBuilder();
+
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < columns; j++)
+                        {
+                            strBuilder.Append(DataGridViewChart_NVR.Rows[i].Cells[j].Value);
+
+                            if (j != columns - 1) strBuilder.Append(";");
+                        }
+                        strBuilder.AppendLine();
+                    }
+                    File.WriteAllText(savepath, strBuilder.ToString(), Encoding.GetEncoding(1251));
+                    MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonDelete_NVR_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewChart_NVR.RowCount != 0)
+            {
+                int valueDel = 0;
+                var res = MessageBox.Show($"{"Удалить данную строку?"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes) valueDel = 1;
+                if (valueDel == 1)
+                {
+                    int del = DataGridViewChart_NVR.CurrentCell.RowIndex;
+                    DataGridViewChart_NVR.Rows.Remove(DataGridViewChart_NVR.Rows[del]);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

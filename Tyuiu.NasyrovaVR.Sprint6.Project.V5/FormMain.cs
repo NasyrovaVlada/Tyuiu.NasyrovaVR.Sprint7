@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 {
@@ -144,10 +144,6 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-        private void ComboBoxFilt_NVR_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void ButtonSum_NVR_Click(object sender, EventArgs e)
         {
@@ -157,17 +153,17 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 {
                     if (row.Visible)
                     {
-                        int[] values = new int[DataGridViewMain_NVR.Rows.Count];
+                        double[] values = new double[DataGridViewMain_NVR.Rows.Count];
 
                         for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++)
                         {
-                            int valuesSum;
-                            if (DataGridViewMain_NVR.Rows[i].Cells[3].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[3].Value.ToString(), out valuesSum))
+                            double valuesSum;
+                            if (DataGridViewMain_NVR.Rows[i].Cells[3].Value != null && double.TryParse(DataGridViewMain_NVR.Rows[i].Cells[3].Value.ToString(), out valuesSum))
                             {
                                 values[i] = valuesSum;
                             }
                         }
-                        int sum = ds.CalculateSum(values);
+                        double sum = ds.CalculateSum(values);
                         TextBoxSum_NVR.Text = sum.ToString();
                     }
                 }
@@ -183,12 +179,12 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             try
             {
                 int visibleRowCount = DataGridViewMain_NVR.Rows.Cast<DataGridViewRow>().Count(row => row.Visible && !row.IsNewRow); // рассчитывает количество видимых строк кроме последней
-                int[] valuesAv = new int[visibleRowCount];
+                double[] valuesAv = new double[visibleRowCount];
 
                 for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++)
                 {
-                    int valuesAverage;
-                    if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null && int.TryParse(DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString(), out valuesAverage))
+                    double valuesAverage;
+                    if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null && double.TryParse(DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString(), out valuesAverage))
                     {
                         valuesAv[i] = valuesAverage;
                     }
@@ -251,6 +247,10 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         {
                             row.Visible = false;
                         }
+                        if (valueFilt == "Все")
+                        {
+                           row.Visible = true;
+                        }
                     }
                 }
             }
@@ -265,18 +265,15 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
                 foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
                 {
-                    int cellValue;
-                    if (row.Cells[columnIndex].Value != null && int.TryParse(row.Cells[columnIndex].Value.ToString(), out cellValue))
+                    double cellValue;
+                    if (row.Cells[columnIndex].Value != null && double.TryParse(row.Cells[columnIndex].Value.ToString(), out cellValue))
                     {
                         row.Cells[columnIndex].Value = cellValue;
-                    }
-                    else
-                    {
-
                     }
                 }
                 try
                 {
+                    
                     DataGridViewColumn column = DataGridViewMain_NVR.Columns[4];
 
                     if (selectedItem == "Min")
@@ -295,15 +292,21 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-        private void ButtonReturn_NVR_Click(object sender, EventArgs e)
+        private void DataGridViewMain_NVR_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
-            foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+            if (e.ColumnIndex == 4) 
             {
-                row.Visible = true;
+                if (e.Value != null)
+                {
+                    double cellValue = 0.0;
+                    if (double.TryParse(e.Value.ToString(), out cellValue))
+                    {
+                        e.ParsingApplied = true; // сообщает элементу управления, что конвертация выполнена и ее необходимо применить к значению ячейки
+                        e.Value = cellValue;
+                    }
+                }
             }
         }
-
-        
     }
 }
 

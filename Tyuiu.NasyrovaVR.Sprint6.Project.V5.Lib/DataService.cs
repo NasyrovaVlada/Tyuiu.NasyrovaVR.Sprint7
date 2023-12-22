@@ -32,9 +32,9 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
             return matrix;
         }
 
-        public int CalculateSum(int[] valueSum)
+        public double CalculateSum(double[] valueSum)
         {
-            int sum = 0;
+            double sum = 0;
             
            
             for (int i = 0; i < valueSum.Length; i++)
@@ -42,10 +42,10 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
                sum += valueSum[i];
             }
            
-            return sum;
+            return Math.Round(sum, 2);
         }
 
-        public double CalculateAverage(int[] values)
+        public double CalculateAverage(double[] values)
         {
             double average = 0;
 
