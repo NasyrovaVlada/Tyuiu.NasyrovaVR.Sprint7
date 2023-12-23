@@ -30,5 +30,30 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Test
 
             Assert.AreEqual(wait, res); 
         }
+
+        [TestMethod]
+        public void CheckMinimumValueCalculation()
+        {
+            DataService ds = new DataService();
+            double[] valuesMinTest = { 3.5, 2.0, 5.1, 1.8, 4.9 };
+            double wait = 1.8;
+
+            double res = ds.FindMinimumValue(valuesMinTest);
+
+            Assert.AreEqual(wait, res);
+        }
+
+
+        [TestMethod]
+        public void CheckMaximumValueCalculation()
+        {
+            DataService ds = new DataService();
+            double[] valuesMaxTest = { 3.5, 2.0, 5.1, 1.8, 4.9 };
+            double wait = 5.1;
+
+            double res = ds.FindMaximumValue(valuesMaxTest);
+
+            Assert.AreEqual(wait, res);
+        }
     }
 }

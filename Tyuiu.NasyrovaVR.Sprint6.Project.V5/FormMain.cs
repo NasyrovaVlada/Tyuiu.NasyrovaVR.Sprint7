@@ -26,7 +26,8 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         static int columns;
         static string openFilePath;
         DataService ds = new DataService();
-        
+        private string[,] gridData;
+
         private void ButtonChart_NVR_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -59,10 +60,10 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 OpenFileDialogMain_NVR.ShowDialog();
                 openFilePath = OpenFileDialogMain_NVR.FileName;
 
-                string[,] matrix = ds.LoadFromDataFile(openFilePath);
+                gridData = ds.LoadFromDataFile(openFilePath);
 
-                rows = matrix.GetLength(0);
-                columns = matrix.GetLength(1);
+                rows = gridData.GetLength(0);
+                columns = gridData.GetLength(1);
 
                 DataGridViewMain_NVR.RowCount = rows+1;
                 DataGridViewMain_NVR.ColumnCount = columns;
@@ -72,7 +73,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        DataGridViewMain_NVR.Rows[i].Cells[j].Value = matrix[i, j];
+                        DataGridViewMain_NVR.Rows[i].Cells[j].Value = gridData[i, j];
                     }
                 }
                 DataGridViewMain_NVR.AutoResizeColumns();
@@ -95,9 +96,8 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     string savepath = SaveFileDialogMain_NVR.FileName;
 
                     if (File.Exists(savepath)) File.Delete(savepath);
-
-                    int rows = DataGridViewMain_NVR.RowCount;
-                    int columns = DataGridViewMain_NVR.ColumnCount;
+                    int rows = gridData.GetLength(0);
+                    int columns = gridData.GetLength(1);
 
                     StringBuilder strBuilder = new StringBuilder();
 
@@ -105,7 +105,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     {
                         for (int j = 0; j < columns; j++)
                         {
-                            strBuilder.Append(DataGridViewMain_NVR.Rows[i].Cells[j].Value);
+                            strBuilder.Append(gridData[i, j]);
 
                             if (j != columns - 1) strBuilder.Append(";");
                         }
@@ -124,51 +124,61 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         private void TextBoxSearch_NVR_TextChanged(object sender, EventArgs e)
         {
             string searchText = TextBoxSearch_NVR.Text.ToLower(); //приведение к нижнему регистру
-            foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
+            for (int i = 0; i < DataGridViewMain_NVR.Rows.Count; i++)
             {
-                if (row.Cells["DataName"].Value != null && row.Cells["Code"].Value != null)
+                // Проверяем, есть ли данные в массиве gridData для текущей строки
+                if (gridData.GetLength(0) > i && gridData.GetLength(1) >= 3)
                 {
-                    string column1Text = row.Cells["DataName"].Value.ToString().ToLower();
-                    string column2Text = row.Cells["Code"].Value.ToString().ToLower();
-                    string column3Text = row.Cells["Category"].Value.ToString().ToLower();
+                    if (DataGridViewMain_NVR.Rows[i].Visible)
+                    {
+                        string column1Text = gridData[i, 0].ToLower();
+                        string column2Text = gridData[i, 1].ToLower();
+                        string column3Text = gridData[i, 2].ToLower();
 
-                    if (column1Text.Contains(searchText) || column2Text.Contains(searchText))
-                    {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-                        row.Visible = false;
+                        if (column1Text.Contains(searchText) || column2Text.Contains(searchText) || column3Text.Contains(searchText))
+                        {
+                            DataGridViewMain_NVR.Rows[i].Visible = true;
+                        }
+                        else
+                        {
+                            DataGridViewMain_NVR.Rows[i].Visible = false;
+                        }
                     }
                 }
             }
         }
 
-
         private void ButtonSum_NVR_Click(object sender, EventArgs e)
         {
             try
             {
-                foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
-                {
-                    if (row.Visible)
-                    {
-                        double[] values = new double[DataGridViewMain_NVR.Rows.Count];
+                int visibleRowCount = 0;
+                double[] values = new double[rows]; 
 
-                        for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++)
+                for (int i = 0; i < rows; i++)
+                {
+                    if (DataGridViewMain_NVR.Rows[i].Visible)
+                    {
+                        double cellValue;
+                        if (double.TryParse(gridData[i, 3], out cellValue))
                         {
-                            double valuesSum;
-                            if (DataGridViewMain_NVR.Rows[i].Cells[3].Value != null && double.TryParse(DataGridViewMain_NVR.Rows[i].Cells[3].Value.ToString(), out valuesSum))
-                            {
-                                values[i] = valuesSum;
-                            }
+                            values[visibleRowCount] = cellValue;
+                            visibleRowCount++;
                         }
-                        double sum = ds.CalculateSum(values);
-                        TextBoxSum_NVR.Text = sum.ToString();
                     }
                 }
+
+                if (visibleRowCount > 0)
+                {
+                    double res = ds.CalculateSum(values);
+                    TextBoxSum_NVR.Text = Math.Round(res, 2).ToString();
+                }
+                else
+                {
+                    TextBoxSum_NVR.Text = "Нет данных для подсчета";
+                }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -178,22 +188,36 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             try
             {
-                int visibleRowCount = DataGridViewMain_NVR.Rows.Cast<DataGridViewRow>().Count(row => row.Visible && !row.IsNewRow); // рассчитывает количество видимых строк кроме последней
-                double[] valuesAv = new double[visibleRowCount];
-
-                for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++)
+                int visibleRowCount = 0;
+                double sumVisibleValues = 0;
+                double[] valuesAv = new double[rows];
+               
+                for (int i = 0; i < rows; i++)
                 {
-                    double valuesAverage;
-                    if (DataGridViewMain_NVR.Rows[i].Cells[4].Value != null && double.TryParse(DataGridViewMain_NVR.Rows[i].Cells[4].Value.ToString(), out valuesAverage))
+                    if (DataGridViewMain_NVR.Rows[i].Visible)
                     {
-                        valuesAv[i] = valuesAverage;
+                        double valuesAverage;
+                        if (double.TryParse(gridData[i, 4], out valuesAverage))
+                        {
+                            valuesAv[visibleRowCount] = valuesAverage;
+                            sumVisibleValues += valuesAverage;
+                            visibleRowCount++;
+                        }
                     }
                 }
-
-                double average = ds.CalculateAverage(valuesAv);
-                TextBoxAverage_NVR.Text = average.ToString();
+                
+                if (visibleRowCount > 0)
+                {
+                    double average = ds.CalculateAverage(valuesAv, visibleRowCount);
+                    TextBoxAverage_NVR.Text = Math.Round(average, 2).ToString();
+                }
+                else
+                {
+                    TextBoxAverage_NVR.Text = "Нет данных для подсчета";
+                }
+               
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -203,13 +227,20 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         {
             if (DataGridViewMain_NVR.RowCount != 0)
             {
-                int valueDel = 0;
-                var res = MessageBox.Show($"{"Удалить данную строку?"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (res == DialogResult.Yes) valueDel = 1;
-                if (valueDel == 1)
+                if (DataGridViewMain_NVR.RowCount != 0)
                 {
-                    int del = DataGridViewMain_NVR.CurrentCell.RowIndex;
-                    DataGridViewMain_NVR.Rows.Remove(DataGridViewMain_NVR.Rows[del]);
+                    int valueDel = 0;
+                    var res = MessageBox.Show($"{"Удалить данную строку?"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes) valueDel = 1;
+                    if (valueDel == 1)
+                    {
+                        int del = DataGridViewMain_NVR.CurrentCell.RowIndex;
+                        DataGridViewMain_NVR.Rows.Remove(DataGridViewMain_NVR.Rows[del]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -223,6 +254,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             try
             {
                 DataGridViewMain_NVR.Rows.Add();
+
             }
             catch
             {
@@ -249,20 +281,37 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         }
                         if (valueFilt == "Все")
                         {
-                           row.Visible = true;
+                            row.Visible = true;
                         }
                     }
                 }
             }
-           
         }
 
         private void ComboBoxSort_NVR_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ComboBoxSort_NVR.SelectedItem != null)
             {
-                int columnIndex = 4;
+                int columnIndex = 3;
                 string selectedItem = ComboBoxSort_NVR.SelectedItem.ToString();
+                bool empty = false;
+
+                for (int i = 0; i < DataGridViewMain_NVR.Rows.Count - 1; i++) // исключение последней строки
+                {
+                    if (DataGridViewMain_NVR.Rows[i].Cells[columnIndex].Value == null ||
+                        string.IsNullOrWhiteSpace(DataGridViewMain_NVR.Rows[i].Cells[columnIndex].Value.ToString()))
+                    {
+                        empty = true;
+                        break; // если есть пустая - выход из цикла
+                    }
+                }
+
+                if (empty)
+                {
+                    MessageBox.Show("Удалите пустые строки (кроме последней)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // прерывает выполнение
+                }
+
                 foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)
                 {
                     double cellValue;
@@ -273,9 +322,22 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 }
                 try
                 {
-                    
-                    DataGridViewColumn column = DataGridViewMain_NVR.Columns[4];
+                    DataGridViewColumn column = DataGridViewMain_NVR.Columns[3];
 
+                    if (selectedItem == "All")
+                    {
+                        int rows = gridData.GetLength(0);
+                        int columns = gridData.GetLength(1);
+                        for (int i = 0; i < rows; i++)
+                        {
+                            for (int j = 0; j < columns; j++)
+                            {
+                                DataGridViewMain_NVR.Rows[i].Cells[j].Value = gridData[i, j];
+                            }
+                            DataGridViewMain_NVR.Rows[i].Visible = true;
+                        }
+                        return; // Выход из метода, так как "All" не требует сортировки
+                    }
                     if (selectedItem == "Min")
                     {
                         DataGridViewMain_NVR.Sort(column, ListSortDirection.Ascending);
@@ -284,6 +346,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                     {
                         DataGridViewMain_NVR.Sort(column, ListSortDirection.Descending);
                     }
+
                 }
                 catch
                 {
@@ -294,7 +357,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void DataGridViewMain_NVR_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
-            if (e.ColumnIndex == 4) 
+            if (e.ColumnIndex == 3) 
             {
                 if (e.Value != null)
                 {
@@ -305,6 +368,74 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         e.Value = cellValue;
                     }
                 }
+            }
+        }
+
+        private void ButtonMin_NVR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int columnIndex = 4;
+                bool foundValue = false;
+                double minValue = double.MaxValue; // Инициализация переменной минимального значения большим числом
+
+                for (int i = 0; i < rows; i++) // Проходим по строкам массива gridData
+                {
+                    if (DataGridViewMain_NVR.Rows[i].Visible)
+                    {
+                        if (!string.IsNullOrWhiteSpace(gridData[i, columnIndex])) // Проверяем, что ячейка не пустая
+                        {
+                            double currentValue;
+                            if (double.TryParse(gridData[i, columnIndex], out currentValue)) // Пробуем преобразовать значение ячейки в число
+                            {
+                                foundValue = true; // Устанавливаем флаг, что были найдены действительные значения
+                                if (currentValue < minValue) // Если текущее значение меньше минимального, обновляем минимальное значение
+                                {
+                                    minValue = currentValue;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (foundValue) // Если были найдены действительные значения
+                {
+                    TextBoxMin_NVR.Text = minValue.ToString();
+                }
+                else
+                {
+                    TextBoxMin_NVR.Text = "Нет данных для нахождения минимума";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonMax_NVR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double[] values = new double[gridData.GetLength(0)];
+
+                for (int i = 0; i < gridData.GetLength(0); i++)
+                {
+                    if (DataGridViewMain_NVR.Rows[i].Visible)
+                    {
+                        double valuesMax;
+                        if (double.TryParse(gridData[i, 4], out valuesMax))
+                        {
+                            values[i] = valuesMax;
+                        }
+                    }
+                }
+                double max = ds.FindMaximumValue(values);
+                TextBoxMax_NVR.Text = max.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -45,20 +45,44 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
             return Math.Round(sum, 2);
         }
 
-        public double CalculateAverage(double[] values)
+        public double CalculateAverage(double[] values, int visibleRowCount)
         {
-            double average = 0;
-
-            double sumAverage = 0; 
-            
-
-            for (int i = 0; i < values.Length; i++)
+            if (visibleRowCount > 0)
             {
-                sumAverage += values[i];
+                double average = values.Sum() / visibleRowCount; 
+                return Math.Round(average, 2);
             }
-            average = (sumAverage / values.Length);
+            return 0; 
+        }
 
-            return Math.Round(average, 2);
+        public double FindMinimumValue(double[] values)
+        {
+            double minimum = values[0]; 
+
+            for (int i = 1; i < values.Length; i++) // начиная с второго элемента, сравнивает с текущим мин значением
+            {
+                if (values[i] < minimum)
+                {
+                    minimum = values[i]; 
+                }
+            }
+
+            return minimum; 
+        }
+
+        public double FindMaximumValue(double[] values)
+        {
+            double maximum = values[0];
+
+            for (int i = 1; i < values.Length; i++) 
+            {
+                if (values[i] > maximum)
+                {
+                    maximum = values[i]; 
+                }
+            }
+
+            return maximum; 
         }
 
 
