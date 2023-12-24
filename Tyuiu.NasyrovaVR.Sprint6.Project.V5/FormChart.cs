@@ -24,7 +24,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
         static int columns;
         static string openFilePath;
         DataService ds = new DataService();
-
+        
         private void ButtonBackChart_NVR_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -124,18 +124,6 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-        private void ButtonChartAdd_NVR_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataGridViewChart_NVR.Rows.Add();
-            }
-            catch
-            {
-                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void ButtonSave_NVR_Click(object sender, EventArgs e)
         {
             try
@@ -173,8 +161,21 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
+        private void ButtonChartAdd_NVR_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewChart_NVR.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void ButtonDelete_NVR_Click(object sender, EventArgs e)
         {
+
             if (DataGridViewChart_NVR.RowCount != 0)
             {
                 int valueDel = 0;

@@ -52,10 +52,8 @@
             this.ButtonInfo_NVR = new System.Windows.Forms.Button();
             this.ButtonHelp_NVR = new System.Windows.Forms.Button();
             this.ToolTip_NVR = new System.Windows.Forms.ToolTip(this.components);
-            this.ButtonAdd_NVR = new System.Windows.Forms.Button();
             this.ButtonSum_NVR = new System.Windows.Forms.Button();
             this.ButtonAverage_NVR = new System.Windows.Forms.Button();
-            this.ButtonDelete_NVR = new System.Windows.Forms.Button();
             this.ButtonMax_NVR = new System.Windows.Forms.Button();
             this.ButtonMin_NVR = new System.Windows.Forms.Button();
             this.OpenFileDialogMain_NVR = new System.Windows.Forms.OpenFileDialog();
@@ -174,6 +172,7 @@
             this.ComboBoxSort_NVR.Name = "ComboBoxSort_NVR";
             this.ComboBoxSort_NVR.Size = new System.Drawing.Size(209, 29);
             this.ComboBoxSort_NVR.TabIndex = 0;
+            this.ComboBoxSort_NVR.TabStop = false;
             this.ToolTip_NVR.SetToolTip(this.ComboBoxSort_NVR, "Пожалуйста, перед использованием удалите все пустые строки, кроме последней");
             this.ComboBoxSort_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSort_NVR_SelectedIndexChanged);
             // 
@@ -204,6 +203,7 @@
             this.ComboBoxFilt_NVR.Name = "ComboBoxFilt_NVR";
             this.ComboBoxFilt_NVR.Size = new System.Drawing.Size(159, 29);
             this.ComboBoxFilt_NVR.TabIndex = 0;
+            this.ComboBoxFilt_NVR.TabStop = false;
             this.ComboBoxFilt_NVR.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFilt_NVR_SelectedIndexChanged_1);
             // 
             // LabelSearch_NVR
@@ -310,19 +310,6 @@
             this.ToolTip_NVR.IsBalloon = true;
             this.ToolTip_NVR.ToolTipTitle = "Подсказка";
             // 
-            // ButtonAdd_NVR
-            // 
-            this.ButtonAdd_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonAdd_NVR.BackgroundImage")));
-            this.ButtonAdd_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonAdd_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAdd_NVR.Location = new System.Drawing.Point(653, 230);
-            this.ButtonAdd_NVR.Name = "ButtonAdd_NVR";
-            this.ButtonAdd_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonAdd_NVR.TabIndex = 12;
-            this.ToolTip_NVR.SetToolTip(this.ButtonAdd_NVR, "Добавить строку");
-            this.ButtonAdd_NVR.UseVisualStyleBackColor = true;
-            this.ButtonAdd_NVR.Click += new System.EventHandler(this.ButtonAdd_NVR_Click);
-            // 
             // ButtonSum_NVR
             // 
             this.ButtonSum_NVR.BackColor = System.Drawing.Color.SandyBrown;
@@ -350,19 +337,6 @@
             this.ToolTip_NVR.SetToolTip(this.ButtonAverage_NVR, "Посчитать среднюю цену за 1кг продукта");
             this.ButtonAverage_NVR.UseVisualStyleBackColor = false;
             this.ButtonAverage_NVR.Click += new System.EventHandler(this.ButtonAverage_NVR_Click);
-            // 
-            // ButtonDelete_NVR
-            // 
-            this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
-            this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonDelete_NVR.Location = new System.Drawing.Point(653, 292);
-            this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
-            this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonDelete_NVR.TabIndex = 18;
-            this.ToolTip_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
-            this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
-            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
             // 
             // ButtonMax_NVR
             // 
@@ -458,13 +432,11 @@
             this.Controls.Add(this.TextBoxMax_NVR);
             this.Controls.Add(this.ButtonMin_NVR);
             this.Controls.Add(this.ButtonMax_NVR);
-            this.Controls.Add(this.ButtonDelete_NVR);
             this.Controls.Add(this.TextBoxAverage_NVR);
             this.Controls.Add(this.ButtonAverage_NVR);
             this.Controls.Add(this.TextBoxSum_NVR);
             this.Controls.Add(this.ButtonSum_NVR);
             this.Controls.Add(this.PanelLeft_NVR);
-            this.Controls.Add(this.ButtonAdd_NVR);
             this.Controls.Add(this.PanelTop_NVR);
             this.Controls.Add(this.ButtonSave_NVR);
             this.Controls.Add(this.ButtonOpen_NVR);
@@ -505,7 +477,6 @@
         private System.Windows.Forms.Button ButtonInfo_NVR;
         private System.Windows.Forms.Button ButtonHelp_NVR;
         private System.Windows.Forms.ToolTip ToolTip_NVR;
-        private System.Windows.Forms.Button ButtonAdd_NVR;
         private System.Windows.Forms.OpenFileDialog OpenFileDialogMain_NVR;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataName;
@@ -519,7 +490,6 @@
         private System.Windows.Forms.Button ButtonAverage_NVR;
         private System.Windows.Forms.TextBox TextBoxAverage_NVR;
         private System.Windows.Forms.SaveFileDialog SaveFileDialogMain_NVR;
-        private System.Windows.Forms.Button ButtonDelete_NVR;
         private System.Windows.Forms.Button ButtonMax_NVR;
         private System.Windows.Forms.Button ButtonMin_NVR;
         private System.Windows.Forms.TextBox TextBoxMax_NVR;

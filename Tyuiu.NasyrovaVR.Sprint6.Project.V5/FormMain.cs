@@ -93,6 +93,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 SaveFileDialogMain_NVR.InitialDirectory = @":L";
                 if (SaveFileDialogMain_NVR.ShowDialog() == DialogResult.OK)
                 {
+
                     string savepath = SaveFileDialogMain_NVR.FileName;
 
                     if (File.Exists(savepath)) File.Delete(savepath);
@@ -103,14 +104,22 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
                     for (int i = 0; i < rows; i++)
                     {
-                        for (int j = 0; j < columns; j++)
+                        if (DataGridViewMain_NVR.Rows[i].Visible)
                         {
-                            strBuilder.Append(gridData[i, j]);
-
-                            if (j != columns - 1) strBuilder.Append(";");
+                            bool isFirstCell = true; // флаг для определения, является ли текущая ячейка первой в строке
+                            for (int j = 0; j < columns; j++)
+                            {
+                                if (!string.IsNullOrEmpty(gridData[i, j])) // проверка пустой строки
+                                {
+                                    if (!isFirstCell) strBuilder.Append(";"); // добавляем разделитель, если текущая ячейка не первая в строке
+                                    strBuilder.Append(gridData[i, j]);
+                                    isFirstCell = false; // меняем флаг после добавления первой ячейки в строке
+                                }
+                            }
+                            strBuilder.AppendLine(); // переход на новую строку 
                         }
-                        strBuilder.AppendLine();
                     }
+
                     File.WriteAllText(savepath, strBuilder.ToString(), Encoding.GetEncoding(1251));
                     MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -129,8 +138,6 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                 // Проверяем, есть ли данные в массиве gridData для текущей строки
                 if (gridData.GetLength(0) > i && gridData.GetLength(1) >= 3)
                 {
-                    if (DataGridViewMain_NVR.Rows[i].Visible)
-                    {
                         string column1Text = gridData[i, 0].ToLower();
                         string column2Text = gridData[i, 1].ToLower();
                         string column3Text = gridData[i, 2].ToLower();
@@ -143,7 +150,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         {
                             DataGridViewMain_NVR.Rows[i].Visible = false;
                         }
-                    }
+                    
                 }
             }
         }
@@ -167,7 +174,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                         }
                     }
                 }
-
+               
                 if (visibleRowCount > 0)
                 {
                     double res = ds.CalculateSum(values);
@@ -220,45 +227,6 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             catch
             {
                 MessageBox.Show("Невозможно выполнить действие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ButtonDelete_NVR_Click(object sender, EventArgs e)
-        {
-            if (DataGridViewMain_NVR.RowCount != 0)
-            {
-                if (DataGridViewMain_NVR.RowCount != 0)
-                {
-                    int valueDel = 0;
-                    var res = MessageBox.Show($"{"Удалить данную строку?"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (res == DialogResult.Yes) valueDel = 1;
-                    if (valueDel == 1)
-                    {
-                        int del = DataGridViewMain_NVR.CurrentCell.RowIndex;
-                        DataGridViewMain_NVR.Rows.Remove(DataGridViewMain_NVR.Rows[del]);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ButtonAdd_NVR_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataGridViewMain_NVR.Rows.Add();
-
-            }
-            catch
-            {
-                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

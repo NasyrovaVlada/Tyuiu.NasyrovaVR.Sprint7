@@ -42,6 +42,9 @@
             this.ToolTipChart_NVR = new System.Windows.Forms.ToolTip(this.components);
             this.ButtonOpenChart_NVR = new System.Windows.Forms.Button();
             this.ButtonDoneChart_NVR = new System.Windows.Forms.Button();
+            this.ButtonChartAdd_NVR = new System.Windows.Forms.Button();
+            this.ButtonDelete_NVR = new System.Windows.Forms.Button();
+            this.ButtonSave_NVR = new System.Windows.Forms.Button();
             this.DataGridViewChart_NVR = new System.Windows.Forms.DataGridView();
             this.CodeCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataNameCh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +55,6 @@
             this.OpenFileDialogChart_NVR = new System.Windows.Forms.OpenFileDialog();
             this.PanelLeftChart_NVR = new System.Windows.Forms.Panel();
             this.Chart_NVR = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.ButtonChartAdd_NVR = new System.Windows.Forms.Button();
-            this.ButtonDelete_NVR = new System.Windows.Forms.Button();
-            this.ButtonSave_NVR = new System.Windows.Forms.Button();
             this.SaveFileDialogChart_NVR = new System.Windows.Forms.SaveFileDialog();
             this.PanelTopChart_NVR.SuspendLayout();
             this.GroupBoxChart_NVR.SuspendLayout();
@@ -159,6 +159,45 @@
             this.ButtonDoneChart_NVR.UseVisualStyleBackColor = false;
             this.ButtonDoneChart_NVR.Click += new System.EventHandler(this.ButtonDoneChart_NVR_Click);
             // 
+            // ButtonChartAdd_NVR
+            // 
+            this.ButtonChartAdd_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonChartAdd_NVR.BackgroundImage")));
+            this.ButtonChartAdd_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonChartAdd_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonChartAdd_NVR.Location = new System.Drawing.Point(606, 230);
+            this.ButtonChartAdd_NVR.Name = "ButtonChartAdd_NVR";
+            this.ButtonChartAdd_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonChartAdd_NVR.TabIndex = 13;
+            this.ToolTipChart_NVR.SetToolTip(this.ButtonChartAdd_NVR, "Добавить строку");
+            this.ButtonChartAdd_NVR.UseVisualStyleBackColor = true;
+            this.ButtonChartAdd_NVR.Click += new System.EventHandler(this.ButtonChartAdd_NVR_Click_1);
+            // 
+            // ButtonDelete_NVR
+            // 
+            this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
+            this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDelete_NVR.Location = new System.Drawing.Point(606, 292);
+            this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
+            this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonDelete_NVR.TabIndex = 19;
+            this.ToolTipChart_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
+            this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
+            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
+            // 
+            // ButtonSave_NVR
+            // 
+            this.ButtonSave_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSave_NVR.BackgroundImage")));
+            this.ButtonSave_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ButtonSave_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonSave_NVR.Location = new System.Drawing.Point(605, 168);
+            this.ButtonSave_NVR.Name = "ButtonSave_NVR";
+            this.ButtonSave_NVR.Size = new System.Drawing.Size(79, 56);
+            this.ButtonSave_NVR.TabIndex = 20;
+            this.ToolTipChart_NVR.SetToolTip(this.ButtonSave_NVR, "Сохранить данные");
+            this.ButtonSave_NVR.UseVisualStyleBackColor = true;
+            this.ButtonSave_NVR.Click += new System.EventHandler(this.ButtonSave_NVR_Click);
+            // 
             // DataGridViewChart_NVR
             // 
             this.DataGridViewChart_NVR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -240,45 +279,6 @@
             title3.Name = "Title";
             title3.Text = "Диаграмма стоимости";
             this.Chart_NVR.Titles.Add(title3);
-            // 
-            // ButtonChartAdd_NVR
-            // 
-            this.ButtonChartAdd_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonChartAdd_NVR.BackgroundImage")));
-            this.ButtonChartAdd_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonChartAdd_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonChartAdd_NVR.Location = new System.Drawing.Point(606, 230);
-            this.ButtonChartAdd_NVR.Name = "ButtonChartAdd_NVR";
-            this.ButtonChartAdd_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonChartAdd_NVR.TabIndex = 13;
-            this.ToolTipChart_NVR.SetToolTip(this.ButtonChartAdd_NVR, "Добавить строку");
-            this.ButtonChartAdd_NVR.UseVisualStyleBackColor = true;
-            this.ButtonChartAdd_NVR.Click += new System.EventHandler(this.ButtonChartAdd_NVR_Click);
-            // 
-            // ButtonDelete_NVR
-            // 
-            this.ButtonDelete_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDelete_NVR.BackgroundImage")));
-            this.ButtonDelete_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonDelete_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonDelete_NVR.Location = new System.Drawing.Point(606, 292);
-            this.ButtonDelete_NVR.Name = "ButtonDelete_NVR";
-            this.ButtonDelete_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonDelete_NVR.TabIndex = 19;
-            this.ToolTipChart_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
-            this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
-            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
-            // 
-            // ButtonSave_NVR
-            // 
-            this.ButtonSave_NVR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSave_NVR.BackgroundImage")));
-            this.ButtonSave_NVR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ButtonSave_NVR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonSave_NVR.Location = new System.Drawing.Point(605, 168);
-            this.ButtonSave_NVR.Name = "ButtonSave_NVR";
-            this.ButtonSave_NVR.Size = new System.Drawing.Size(79, 56);
-            this.ButtonSave_NVR.TabIndex = 20;
-            this.ToolTipChart_NVR.SetToolTip(this.ButtonSave_NVR, "Сохранить данные");
-            this.ButtonSave_NVR.UseVisualStyleBackColor = true;
-            this.ButtonSave_NVR.Click += new System.EventHandler(this.ButtonSave_NVR_Click);
             // 
             // FormChart
             // 

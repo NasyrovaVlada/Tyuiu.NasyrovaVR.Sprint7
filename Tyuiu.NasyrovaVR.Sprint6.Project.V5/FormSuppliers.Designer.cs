@@ -194,7 +194,7 @@
             this.ButtonAddSuppliers_NVR.TabIndex = 13;
             this.ToolTipSuppliers_NVR.SetToolTip(this.ButtonAddSuppliers_NVR, "Добавить строку");
             this.ButtonAddSuppliers_NVR.UseVisualStyleBackColor = true;
-            this.ButtonAddSuppliers_NVR.Click += new System.EventHandler(this.ButtonAddSuppliers_NVR_Click);
+            this.ButtonAddSuppliers_NVR.Click += new System.EventHandler(this.ButtonAddSuppliers_NVR_Click_1);
             // 
             // ButtonDelete_NVR
             // 
@@ -207,7 +207,7 @@
             this.ButtonDelete_NVR.TabIndex = 19;
             this.ToolTipSuppliers_NVR.SetToolTip(this.ButtonDelete_NVR, "Удалить строку");
             this.ButtonDelete_NVR.UseVisualStyleBackColor = true;
-            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click);
+            this.ButtonDelete_NVR.Click += new System.EventHandler(this.ButtonDelete_NVR_Click_1);
             // 
             // ButtonSuppliersSave_NVR
             // 

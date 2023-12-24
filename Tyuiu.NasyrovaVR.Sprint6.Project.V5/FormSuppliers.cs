@@ -88,18 +88,6 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-        private void ButtonAddSuppliers_NVR_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataGridViewSuppliers_NVR.Rows.Add();
-            }
-            catch
-            {
-                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void ButtonSuppliersSave_NVR_Click(object sender, EventArgs e)
         {
             try
@@ -137,7 +125,8 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             }
         }
 
-        private void ButtonDelete_NVR_Click(object sender, EventArgs e)
+
+        private void ButtonDelete_NVR_Click_1(object sender, EventArgs e)
         {
             if (DataGridViewSuppliers_NVR.RowCount != 0)
             {
@@ -153,6 +142,18 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
             else
             {
                 MessageBox.Show("Строка не выбрана", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonAddSuppliers_NVR_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewSuppliers_NVR.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
