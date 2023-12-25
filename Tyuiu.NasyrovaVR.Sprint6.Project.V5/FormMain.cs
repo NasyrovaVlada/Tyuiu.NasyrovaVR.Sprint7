@@ -232,7 +232,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ComboBoxFilt_NVR_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            string valueFilt = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+            string valueFilt = ComboBoxFilt_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента
             if (!string.IsNullOrEmpty(valueFilt))
             {
                 foreach (DataGridViewRow row in DataGridViewMain_NVR.Rows)

@@ -66,7 +66,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
 
         private void ComboBoxChart_NVR_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string valueFilt = ComboBoxChart_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента ComboBox
+            string valueFilt = ComboBoxChart_NVR.SelectedItem.ToString(); //извлечение строкового значения выбранного элемента
 
             foreach (DataGridViewRow row in DataGridViewChart_NVR.Rows)
             {
