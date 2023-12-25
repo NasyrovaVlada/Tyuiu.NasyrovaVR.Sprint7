@@ -268,6 +268,7 @@
             // 
             // LabelName_NVR
             // 
+            this.LabelName_NVR.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LabelName_NVR.AutoSize = true;
             this.LabelName_NVR.Font = new System.Drawing.Font("Segoe UI Variable Display", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LabelName_NVR.ForeColor = System.Drawing.Color.White;

@@ -23,10 +23,12 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Test
         public void CheckCalculateAverage ()
         {
             DataService ds = new DataService();
-            double[] valuesAverageTest = { 5, 10, 15, 20 };
-            double wait = 12.5; 
+           
+            double[] values = { 10, 20, 30 };
+            int visibleRowCount = 3;
 
-            double res = ds.CalculateAverage(valuesAverageTest);
+            double res = ds.CalculateAverage(values, visibleRowCount);
+            double wait = 20; 
 
             Assert.AreEqual(wait, res); 
         }

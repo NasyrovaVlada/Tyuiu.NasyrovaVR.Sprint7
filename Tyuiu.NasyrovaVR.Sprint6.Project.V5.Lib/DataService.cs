@@ -49,11 +49,12 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5.Lib
         {
             if (visibleRowCount > 0)
             {
-                double average = values.Sum() / visibleRowCount; 
+                double average = values.Sum() / visibleRowCount;
                 return Math.Round(average, 2);
             }
-            return 0; 
+            return 0;
         }
+
 
         public double FindMinimumValue(double[] values)
         {
