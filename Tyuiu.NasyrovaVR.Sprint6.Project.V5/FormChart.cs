@@ -110,7 +110,7 @@ namespace Tyuiu.NasyrovaVR.Sprint6.Project.V5
                             string labelOne = row.Cells[1].Value.ToString();
                             double valueFour = Convert.ToDouble(row.Cells[4].Value);
 
-                            // добавление данных в серию для диаграммы
+                            // добавление данных в серию 
                             Chart_NVR.Series["DataSeries"].Points.AddXY(labelOne, valueFour);
                         }
                     }
